@@ -1,0 +1,52 @@
+.home-hero {
+  padding-top: 13.75rem;
+  height: 100svh;
+}
+
+.header-container {
+  margin: auto;
+  display: block;
+  width: 60%;
+}
+.wrapper {
+  display: inline-block;
+  max-width: 470px;
+}
+.wrapper > h1 {
+  margin-bottom: 20px;
+  line-height: 1.1;
+  font-size: var(--fs-header);
+  font-weight: bold;
+}
+.wrapper > h1 > span {
+  color: var(--color-green);
+}
+
+.btn-container {
+  margin: auto;
+  padding-top: 11rem;
+  display: flex;
+  justify-content: center;
+  gap: 150px;
+  width: 60%;
+}
+.btn-container > :nth-child(2) {
+  background-color: var(--color-green);
+}
+.btn {
+  border: 0;
+  border-radius: 15px;
+  padding: 15px 35px 15px 35px;
+  display: inline-block;
+  line-height: 16px;
+  width: fit-content;
+  height: fit-content;
+  color: white;
+  background-color: var(--color-lightblue);
+  transition: .15s;
+  cursor: pointer;
+}
+.btn > span {
+  font-size: 18px;
+  line-height: 0;
+}

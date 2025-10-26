@@ -1,0 +1,35 @@
+.navbar-container {
+  position: fixed;
+  width: 100%;
+  padding: 20px 20px 10px 20px
+}
+
+.navbar-flex {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+}
+
+.nav-links {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  gap: 20%;
+}
+
+.button {
+  border: 0;
+  border-radius: 20px;
+  padding: 10px 20px 10px 20px;
+  width: fit-content;
+  height: fit-content;
+  color: white;
+  background-color: black;
+  mix-blend-mode: difference;
+  transition: .15s;
+  cursor: pointer;
+}
+.button > span {
+  font-size: 18px;
+  line-height: 0;
+}

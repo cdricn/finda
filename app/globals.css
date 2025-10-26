@@ -1,42 +1,44 @@
 :root {
+  font-family: "Inter", system-ui, Avenir, Helvetica, Arial, sans-serif;
+  scroll-behavior: smooth;
   --background: #ffffff;
   --foreground: #171717;
+
+  --color-green: #0A9929;
+  --color-lightblue: #4B94F3;
+
+  --fs-header: 5rem; /*80px;*/
+  
 }
 
 @media (prefers-color-scheme: dark) {
   :root {
-    --background: #0a0a0a;
-    --foreground: #ededed;
+    --background: #15151b;
+    --foreground: rgb(254, 255, 248);
   }
 }
 
-html,
-body {
-  max-width: 100vw;
-  overflow-x: hidden;
-}
-
-body {
-  color: var(--foreground);
-  background: var(--background);
-  font-family: Arial, Helvetica, sans-serif;
-  -webkit-font-smoothing: antialiased;
-  -moz-osx-font-smoothing: grayscale;
+*, *::before, *::after {
+  box-sizing: border-box;
 }
 
 * {
-  box-sizing: border-box;
-  padding: 0;
   margin: 0;
+  padding: 0;
+  font: inherit;
 }
 
 a {
-  color: inherit;
   text-decoration: none;
+  color: inherit;
 }
 
-@media (prefers-color-scheme: dark) {
-  html {
-    color-scheme: dark;
-  }
+body {
+  min-height: 100vh;
+  overflow: auto;
+}
+
+img, picture, svg, video {
+  display: block;
+  max-width: 100%;
 }
