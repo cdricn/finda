@@ -4,8 +4,32 @@
   --background: #ffffff;
   --foreground: #171717;
 
-  --color-green: #0A9929;
-  --color-lightblue: #4B94F3;
+  --color-black: #000000;
+  --color-white: #ffffff;
+  --color-purple-100: #b47bff;
+  --color-purple-200: #8b4ddb;
+  --color-purple-300: #7140B3;
+  --color-purple-500: #440C8E;
+  --color-purple-400: #360874;
+  --color-blue-300: #4B94F3;
+  --color-blue-500: #4486dd;
+  --color-grey-300: #adadad;
+  --color-light-itch: #ff4b69;
+  --color-itch: #FF2449;
+  --color-dark-itch: #dd2140;
+
+  --button-text: var(--color-white);
+  --button-primary: var(--color-black);
+  --button-primary-hover: var(--color-purple-500);
+  --button-secondary: var(--color-blue-300);
+  --button-secondary-hover: var(--color-blue-500);
+  --button-brand: var(--color-purple-300);
+  --button-brand-hover: var(--color-purple-500);
+
+  --text-secondary: var(--color-purple-300);
+
+  --bg-shadow: var(--color-grey-300);
+
 
   --fs-header: 5rem; /*80px;*/
   

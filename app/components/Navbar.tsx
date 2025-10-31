@@ -17,17 +17,15 @@ export default async function Navbar() {
         </Link>
 
         <div className={styles['nav-links']}>
-          <Link className="link" href="/">Forums</Link>
+          <Link className="link" href="/forums">Forums</Link>
           <Link className="link" href="/">GameJams</Link>
-          <Link className="link" href="/">GitHub</Link>
+          <Link className="link" href="https://github.com/cdricn/finda">GitHub</Link>
         </div>
 
         <div className={styles['button-container']}>
           {session && session?.user ? (
-            <>
-              <Link href="/">
-                <span>Create</span>
-              </Link>
+            <div className={styles['']}>
+              <span>{session?.user?.name}</span>
               <form action={async() => {
                 "use server";
                 await signOut({redirectTo: "/"});
@@ -36,11 +34,7 @@ export default async function Navbar() {
                   <span>Logout</span>
                 </button>
               </form>
-
-              <Link href={`/user/${session?.id}`}>
-                <span>{session?.user?.name}</span>
-              </Link>
-            </>
+            </div>
           ) : (
             <form action={async() => {
               "use server";

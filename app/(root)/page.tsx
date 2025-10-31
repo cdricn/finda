@@ -9,18 +9,20 @@ export default function Home() {
 
   return (
     <section className={styles['home-hero']}>
-      <div className={styles['header-container']}>
-        <div className={styles['wrapper']}>
-          <h1>Finding {letterA} <span>{currAlternate}</span><br/> made easier.</h1>
-          <p>Finda was made to make it easier to find other people to fill in the role missing in your gamejam team.</p>
+      <div className={styles['hero-container']}>
+        <div className={styles['header-container']}>
+          <div className={styles['header-wrapper']}>
+            <h1>Finding {letterA} <span>{currAlternate}</span><br/> made easier.</h1>
+            <p>Finda was made to make it easier to find other people to fill in the role missing in your gamejam team.</p>
+          </div>
         </div>
-      </div>
-      <div className={styles['btn-container']}>
-        <div className={styles['btn']}>
-          <span>Learn More</span>
-        </div>
-        <div className={styles['btn']}>
-          <Link className="link" href="/">Go to Forums</Link>
+        <div className={styles['btn-container']}>
+          <div className={([styles['btn'], styles['learn-more']]).join(' ')}>
+            <span>Learn More</span>
+          </div>
+          <div className={([styles['btn'], styles['forums']]).join(' ')}>
+            <Link className="link" href="/forums">Go to Forums</Link>
+          </div>
         </div>
       </div>
     </section>

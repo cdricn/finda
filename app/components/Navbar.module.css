@@ -1,7 +1,8 @@
 .navbar-container {
   position: fixed;
   width: 100%;
-  padding: 20px 20px 10px 20px
+  padding: 20px 20px 10px 20px;
+  box-shadow: 0 -3px 3px 2px var(--bg-shadow);
 }
 
 .navbar-flex {
@@ -23,13 +24,15 @@
   padding: 10px 20px 10px 20px;
   width: fit-content;
   height: fit-content;
-  color: white;
-  background-color: black;
-  mix-blend-mode: difference;
+  background-color: var(--button-primary);
   transition: .15s;
   cursor: pointer;
 }
 .button > span {
   font-size: 18px;
   line-height: 0;
+  color: var(--button-text);
+}
+.button:hover {
+  background-color: var(--button-primary-hover);
 }
