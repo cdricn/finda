@@ -1,0 +1,45 @@
+.filter-section {
+  padding-bottom: 10px;
+}
+.filter-header {
+  font-size: var(--fs-filter-header);
+  font-weight: 500;
+}
+
+.tags-container {
+  padding-top: 3px;
+  padding-left: 10px;
+  display: flex;
+  flex-direction: column;
+  gap: 5px;
+}
+
+.tag-option {
+  display: flex;
+  align-content: center;
+}
+.tag-option > label {
+  padding-left: 5px;
+  font-size: var(--fs-filter-body);
+}
+
+.search-btn {
+  margin: auto;
+  border: 0;
+  border-radius: 20px;
+  padding: 5px 20px 5px 20px;
+  display: flex;
+  align-items: center;
+  width: fit-content;
+  height: fit-content;
+  background-color: var(--button-brand);
+  transition: .15s;
+  cursor: pointer;
+}
+.search-btn > span {  
+  font-size: var(--fs-filter-body);
+  color: var(--button-text);
+}
+.search-btn:hover {
+  background-color: var(--button-brand-hover);
+}
