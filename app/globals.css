@@ -14,6 +14,7 @@
   --color-blue-300: #4B94F3;
   --color-blue-500: #4486dd;
   --color-grey-300: #adadad;
+  --color-grey-500: #818181;
   --color-light-itch: #ff4b69;
   --color-itch: #FF2449;
   --color-dark-itch: #dd2140;
@@ -26,12 +27,15 @@
   --button-brand: var(--color-purple-300);
   --button-brand-hover: var(--color-purple-500);
 
-  --text-secondary: var(--color-purple-300);
+  --text-secondary: var(--color-grey-300);
+  --text-brand: var(--color-purple-300);
 
   --bg-shadow: var(--color-grey-300);
 
 
   --fs-header: 5rem; /*80px;*/
+  --fs-filter-header: 1rem; /*16px;*/
+  --fs-filter-body: .875rem; /*14px;*/
   
 }
 

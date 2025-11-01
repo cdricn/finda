@@ -17,7 +17,7 @@ export default async function Navbar() {
         </Link>
 
         <div className={styles['nav-links']}>
-          <Link className="link" href="/forums">Forums</Link>
+          <Link className="link" href="/forums">Home</Link>
           <Link className="link" href="/">GameJams</Link>
           <Link className="link" href="https://github.com/cdricn/finda">GitHub</Link>
         </div>
