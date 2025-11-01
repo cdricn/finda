@@ -1,0 +1,23 @@
+
+.main-container {
+  padding-top: 30px;
+  display: flex;
+}
+
+.filter-section {
+  padding: 10px;
+  position: relative;
+}
+
+.content-section {
+  padding: 10px;
+  flex: auto;
+  display: flex;
+  background-color: blue;
+}
+
+.placeholder {
+  width: 100px;
+  height: 100px;
+  background-color: green;
+}
