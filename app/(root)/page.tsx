@@ -21,7 +21,7 @@ export default function Home() {
             <span>Learn More</span>
           </div>
           <div className={([styles['btn'], styles['forums']]).join(' ')}>
-            <Link className="link" href="/forums">Go to Home</Link>
+            <Link className="link" href="/posts">Go to Home</Link>
           </div>
         </div>
       </div>

@@ -9,7 +9,8 @@ export default function Filter() {
   return (
     <>
       <section className={styles['filter-section']}>
-        <span className={styles['filter-header']}>Current Gamejams</span>
+        <span className={styles['filter-header']}>Filter</span><br/>
+        <span className={styles['filter-header']}>Gamejams</span>
         <li className={styles['tags-container']}>
               {
                 currentGamejams.map((val)=>{
@@ -60,7 +61,7 @@ export default function Filter() {
         </li>
       </section>
       <div className={styles['search-btn']}>
-        <span>Filter</span>
+        <span>Search</span>
       </div>
     </>
   )
