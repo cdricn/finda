@@ -1,6 +1,7 @@
 import Image from "next/image";
 import Link from "next/link";
 import styles from "./page.module.css";
+import LinkButton from "../components/linkbutton";
 
 export default function Home() {
   const alternate = ['team', 'teammate', 'writer', 'developer', 'artist', 'composer'];
@@ -17,12 +18,8 @@ export default function Home() {
           </div>
         </div>
         <div className={styles['btn-container']}>
-          <div className={([styles['btn'], styles['learn-more']]).join(' ')}>
-            <span>Learn More</span>
-          </div>
-          <div className={([styles['btn'], styles['forums']]).join(' ')}>
-            <Link className="link" href="/posts">Go to Home</Link>
-          </div>
+          <LinkButton styleName={'about'} text={'Learn More'} link={"./"}/>
+          <LinkButton styleName={'posts'} text={'Go to Home'} link={"/posts"}/>
         </div>
       </div>
     </section>

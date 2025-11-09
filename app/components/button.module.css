@@ -1,0 +1,22 @@
+.button {
+  border: 0;
+  border-radius: 15px;
+  margin: auto;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: fit-content;
+  height: fit-content;
+  transition: .15s;
+  cursor: pointer;
+  color: var(--button-text);
+}
+.button:hover {
+  opacity: .9;
+}
+
+@media (width < 660px) {
+  .button {
+    width: 70%;
+  }
+}

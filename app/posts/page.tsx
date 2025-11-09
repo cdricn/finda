@@ -45,7 +45,7 @@ export default function Forums() {
           <div className={styles['posts-container']}>
 
             <a href={'./'} className={styles['post-card']}>
-              <h2>{'Looking for Artist to fill up my team spot'}</h2>
+              <h2>{'Looking for Artist to fill up my team'}</h2>
               <p>Gamejam: {'Spooky'}</p>
               <p>Tags: {'2D Artist'}</p>
               <span className={styles['divider']}></span>

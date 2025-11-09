@@ -31,36 +31,24 @@
   padding-top: 11rem;
   display: flex;
   justify-content: space-between;
-  width: 100%;
+  width: 60%;
+  gap: 20%;
   max-width: 400px;
 }
-.btn {
-  border: 0;
-  border-radius: 15px;
-  padding: 15px 35px 15px 35px;
-  display: flex;
-  align-items: center;
-  line-height: 16px;
-  width: fit-content;
-  height: fit-content;
-  color: var(--button-text);
-  transition: .15s;
-  cursor: pointer;
-}
-.btn > span {
-  font-size: 18px;
-}
 
-.learn-more {
-  background-color: var(--button-secondary);
-}
-.learn-more:hover {
-  background-color: var(--button-secondary-hover);
-}
-.forums {
-  background-color: var(--button-brand);
-}
-.forums:hover {
-  background-color: var(--button-brand-hover);
-}
+@media (width < 660px) {
+  .home-hero {
+    padding-top: 7rem;
+  }
 
+  .header-container {
+    width: 90%;
+  }
+
+  .btn-container {
+    padding-top: 10%;
+    flex-direction: column;
+    gap: 50px;
+    width: 80%;
+  }
+}

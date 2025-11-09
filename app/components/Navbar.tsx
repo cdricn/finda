@@ -1,9 +1,10 @@
-import Link from "next/link"
-import Image from "next/image"
-import { auth, signOut, signIn } from "@/auth"
+import Link from "next/link";
+import Image from "next/image";
+import { auth, signOut, signIn } from "@/auth";
 import { sign } from "crypto";
 import GitHub from "next-auth/providers/github";
 import styles from './Navbar.module.css';
+import Button from "./button";
 
 export default async function Navbar() {
   const session = await auth();
@@ -40,9 +41,7 @@ export default async function Navbar() {
               "use server";
               await signIn('github');
             }}>
-              <button type="submit" className={styles['button']}>
-                <span>Sign In</span>
-              </button>
+              <Button styleName={'navbar'} text={'Sign In'}/>
             </form>
           )
           }

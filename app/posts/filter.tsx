@@ -1,6 +1,7 @@
 'use client';
 
 import styles from './filter.module.css';
+import Button from '../components/button';
 import { useState } from 'react';
 
 export default function Filter() {
@@ -13,9 +14,9 @@ export default function Filter() {
         <span className={styles['filter-header']}>Gamejams</span>
         <li className={styles['tags-container']}>
               {
-                currentGamejams.map((val)=>{
+                currentGamejams.map((val, index)=>{
                   return (
-                    <ul className={styles['tag-option']}>
+                    <ul key={index} className={styles['tag-option']}>
                       <input type="checkbox" id={val} name={val}/>
                       <label>{val}</label>
                     </ul>
@@ -60,9 +61,7 @@ export default function Filter() {
           </ul>
         </li>
       </section>
-      <div className={styles['search-btn']}>
-        <span>Search</span>
-      </div>
+      <Button styleName={'filter'} text={'Search'}/>
     </>
   )
 }
