@@ -1,7 +1,9 @@
-async function GetJams() {
-  const response = await fetch('https://itch-jamcommunity-api.vercel.app/jams', { method: "GET"});
+async function FetchJams() {
+  const response = await fetch('http://localhost:8000/jams', { method: "GET"});
   const data = await response.json();
   return data;
 }
+export default FetchJams;
 
-export default GetJams;
+//
+//https://itch-jamcommunity-api.vercel.app/jams

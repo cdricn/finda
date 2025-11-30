@@ -2,15 +2,11 @@ import Image from "next/image";
 import Link from "next/link";
 import styles from "./page.module.css";
 import LinkButton from "../components/linkbutton";
-import GetJams from "../api/scraper/scraper";
 
-export default async function Home() {
+export default function Home() {
   const alternate = ['team', 'teammate', 'writer', 'developer', 'artist', 'composer'];
   let currAlternate = alternate[0];
   let letterA = currAlternate == 'artist' ? 'an' : 'a';
-
-  const test = await GetJams();
-  console.log(test);
 
   return (
     <section className={styles['home-hero']}>
