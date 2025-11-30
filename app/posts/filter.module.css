@@ -1,45 +1,22 @@
 .filter-section {
   padding-bottom: 10px;
 }
-.filter-header {
-  font-size: var(--fs-filter-header);
-  font-weight: 500;
+.filter-section > span {
+  padding-bottom: 5px;
+  display: inline-block;
 }
 
-.tags-container {
-  padding-top: 3px;
-  padding-left: 10px;
-  display: flex;
-  flex-direction: column;
-  gap: 5px;
+.filter-items {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 3px;
 }
 
-.tag-option {
-  display: flex;
-  align-content: center;
-}
-.tag-option > label {
-  padding-left: 5px;
+.filter-button {
+  border: 0px;
+  border-radius: 3px;
+  padding: 5px;
+  text-align: center;
+  background-color: var(--button-filterOption);
   font-size: var(--fs-filter-body);
-}
-
-.search-btn {
-  margin: auto;
-  border: 0;
-  border-radius: 20px;
-  padding: 5px 20px 5px 20px;
-  display: flex;
-  align-items: center;
-  width: fit-content;
-  height: fit-content;
-  background-color: var(--button-brand);
-  transition: .15s;
-  cursor: pointer;
-}
-.search-btn > span {  
-  font-size: var(--fs-filter-body);
-  color: var(--button-text);
-}
-.search-btn:hover {
-  background-color: var(--button-brand-hover);
 }
