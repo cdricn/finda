@@ -36,7 +36,7 @@ export default function Header() {
         </div>
         <div className={styles['select-container']}>
             <select id="gamejams" className={styles['gamejams-select']} onChange={handleChange}>
-              <option value="">--Choose a gamejam--</option>
+              <option value="" disabled selected>--Choose a gamejam--</option>
               {fetchedJamEntries.map((jam, index)=>{
                 return (
                   <option 
