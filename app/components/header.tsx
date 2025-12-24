@@ -6,13 +6,11 @@ import { GameJam } from '@/app/lib/interface';
 import { Suspense } from 'react';
 import { useState } from 'react';
 import HeaderSkeleton from '../skeleton/headerSkeleton';
+import { useFetchJamsContext } from '../lib/fetchJamsContextProvider';
 
-export default function Header({
-  fetchPromise,
-}:{ 
-  fetchPromise: any
-}) {
-  const fetchedEntries : Array<GameJam> = use(fetchPromise);
+export default function Header() {
+  const { fetchJamsPromise } = useFetchJamsContext();
+  const fetchedJamEntries = use(fetchJamsPromise);
 
   const [selectedJam, setSelectedJam] = useState<GameJam>({
     title: '',
@@ -23,35 +21,35 @@ export default function Header({
   });
 
   function handleChange(e:any) {
-    const newSelected = fetchedEntries.find((item)=>item.title === e.target.value);
+    const newSelected = fetchedJamEntries.find((item)=>item.title === e.target.value);
     if (newSelected) {setSelectedJam(newSelected)};
   }
 
   return (
-    <Suspense fallback={<HeaderSkeleton />}>
-      <h1 className={styles['header']}>
-        <a href={selectedJam.url}>{selectedJam.title}</a>
-      </h1>
-      <div className={styles['gamejam-info']}>
-        <span>Hosted by: {selectedJam.host}</span>
-        <span>Members: {selectedJam.members===0}</span>
-      </div>
-      <div className={styles['select-container']}>
-          <select id="gamejams" className={styles['gamejams-select']} onChange={handleChange}>
-            <option value="">--Choose a gamejam--</option>
-            {fetchedEntries.map((jam, index)=>{
-              return (
-                <option 
-                  key={index} 
-                  id={jam.title}
-                  value={jam.title}
-                  >
-                    {jam.title} ({jam.members})
-                </option>
-              )
-            })}
-          </select>
-      </div>
-    </Suspense>
+      <Suspense fallback={<HeaderSkeleton />}>
+        <h1 className={styles['header']}>
+          <a href={selectedJam.url}>{selectedJam.title==''?'Select a gamejam!':selectedJam.title}</a>
+        </h1>
+        <div className={styles['gamejam-info']}>
+          <span>Hosted by: {selectedJam.host}</span>
+          <span>Members: {selectedJam.members}</span>
+        </div>
+        <div className={styles['select-container']}>
+            <select id="gamejams" className={styles['gamejams-select']} onChange={handleChange}>
+              <option value="">--Choose a gamejam--</option>
+              {fetchedJamEntries.map((jam, index)=>{
+                return (
+                  <option 
+                    key={index} 
+                    id={jam.title}
+                    value={jam.title}
+                    >
+                      {jam.title} ({jam.members})
+                  </option>
+                )
+              })}
+            </select>
+        </div>
+      </Suspense>
   )
 }

@@ -1,4 +1,6 @@
 import type { Metadata } from "next";
+import { FetchJams } from "./api/fetch/dataFetcher";
+import { FetchJamsContextProvider } from "./lib/fetchJamsContextProvider";
 import localFont from "next/font/local"
 import "./globals.css";
 
@@ -9,7 +11,7 @@ const inter = localFont({
 
 export const metadata: Metadata = {
   title: "Finda",
-  description: "Assemble your gamejam team",
+  description: "Filtered community posts for itch gamejams focused on finding teams.",
 };
 
 export default function RootLayout({
@@ -17,10 +19,14 @@ export default function RootLayout({
 }: Readonly<{
   children: React.ReactNode;
 }>) {
+  const fetchJamsPromise = FetchJams();
+
   return (
     <html lang="en">
       <body className={`${inter.variable}`}>
-        {children}
+        <FetchJamsContextProvider fetchJamsPromise={fetchJamsPromise}>
+          {children}
+        </FetchJamsContextProvider>
       </body>
     </html>
   );
