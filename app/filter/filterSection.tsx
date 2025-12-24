@@ -15,16 +15,22 @@ export default function FilterSection() {
       <label>Roles</label>
       <div className={styles['roles-container']}>
         <div className={styles['role-option']}>
-          <input type="checkbox" id="developer" name="developer" value="developer"/>
-          <label>Developer</label>
+          <label>
+            <input type="checkbox" id="developer" name="developer" value="developer"/>
+              Developer
+          </label>
         </div>
         <div className={styles['role-option']}>
-          <input type="checkbox" id="artist" name="artist" value="artist"/>
-          <label>Artist</label>
+          <label>
+            <input type="checkbox" id="artist" name="artist" value="artist"/>
+            Artist
+          </label>
         </div>
         <div className={styles['role-option']}>
-          <input type="checkbox" id="composer" name="composer" value="composer"/>
-          <label>Composer</label>
+          <label>
+            <input type="checkbox" id="composer" name="composer" value="composer"/>
+            Composer
+          </label>
         </div>
       </div>
 
