@@ -1,40 +1,65 @@
 'use client';
 
 import styles from './filter.module.css';
-import { submitFilterForm } from '../lib/actions';
+import { FaFilter } from "react-icons/fa6";
+import { useRouter } from 'next/navigation';
+import { useState, useEffect } from 'react';
+import FilterTag from './filterTag';
+
+interface TagType {
+  [tag:string] : boolean;
+}
 
 export default function FilterSection() {
+  const [tags, setTags] = useState<TagType>({
+    all: true,
+    developer: false,
+    artist: false,
+    composer: false
+  })
+  const router = useRouter();
 
-  function formData(e:FormData) {
-    submitFilterForm(e)
+  useEffect(()=>{
+    const routerTagsArray = [];
+    // Push active tags into the router tags array
+    for(const item in tags) {
+      if(tags[item]) {
+        routerTagsArray.push(item);
+      } 
+    }
+
+    // Push tags into router
+    if(tags.all || routerTagsArray.length==0) {
+      router.push("/");
+    } 
+    else {
+      router.push("?tags="+ routerTagsArray)
+    }
+  }, [tags])
+
+  function handleClick(tag:string) {
+    setTags(prev=>{
+      if(tag === 'all') {
+        return {
+          all: true,
+          developer: false,
+          artist: false,
+          composer: false
+        }
+      }
+      else {
+        return {...prev, all: false, [tag]:!tags[tag]}
+      }
+    })
   }
 
   return (
-    <form id='filterForms' action={formData} className={styles['filter-form']}>
-      <h3>Filters</h3>
-      <label>Roles</label>
-      <div className={styles['roles-container']}>
-        <div className={styles['role-option']}>
-          <label>
-            <input type="checkbox" id="developer" name="developer" value="developer"/>
-              Developer
-          </label>
-        </div>
-        <div className={styles['role-option']}>
-          <label>
-            <input type="checkbox" id="artist" name="artist" value="artist"/>
-            Artist
-          </label>
-        </div>
-        <div className={styles['role-option']}>
-          <label>
-            <input type="checkbox" id="composer" name="composer" value="composer"/>
-            Composer
-          </label>
-        </div>
-      </div>
-
-      <input type="submit" className={styles['filter-forms-button']} value="Search"/>
-    </form>
+    <div className={styles['filter-section']}>
+      <FaFilter />
+      <FilterTag tag={'all'} isActive={tags.all} handleClick={handleClick}/>
+      <FilterTag tag={'developer'} isActive={tags.developer} handleClick={handleClick}/>
+      <FilterTag tag={'artist'} isActive={tags.artist} handleClick={handleClick}/>
+      <FilterTag tag={'composer'} isActive={tags.composer} handleClick={handleClick}/>
+    </div>
   )
 }
