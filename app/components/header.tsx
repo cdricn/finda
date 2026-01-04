@@ -7,6 +7,7 @@ import { Suspense } from 'react';
 import { useState } from 'react';
 import HeaderSkeleton from '../skeleton/headerSkeleton';
 import { useFetchJamsContext } from '../lib/fetchJamsContextProvider';
+import FilterSection from '../filter/filterSection';
 
 export default function Header() {
   const { fetchJamsPromise } = useFetchJamsContext();
@@ -26,6 +27,7 @@ export default function Header() {
   }
 
   return (
+    <header className={styles['header-section']}>
       <Suspense fallback={<HeaderSkeleton />}>
         <h1 className={styles['header']}>
           <a href={selectedJam.url}>{selectedJam.title==''?'Select a gamejam!':selectedJam.title}</a>
@@ -35,21 +37,25 @@ export default function Header() {
           <span>Members: {selectedJam.members}</span>
         </div>
         <div className={styles['select-container']}>
-            <select id="gamejams" className={styles['gamejams-select']} onChange={handleChange}>
-              <option defaultValue="" disabled selected>--Choose a gamejam--</option>
-              {fetchedJamEntries.map((jam, index)=>{
-                return (
-                  <option 
-                    key={index} 
-                    id={jam.title}
-                    value={jam.title}
-                    >
-                      {jam.title} ({jam.members})
-                  </option>
-                )
-              })}
+            <select id="gamejams" className={styles['gamejams-select']} 
+              onChange={handleChange}
+              defaultValue="default">
+                <option value="default" disabled>--Choose a gamejam--</option>
+                {fetchedJamEntries.map((jam, index)=>{
+                  return (
+                    <option 
+                      key={index} 
+                      id={jam.title}
+                      value={jam.title}
+                      >
+                        {jam.title} ({jam.members})
+                    </option>
+                  )
+                })}
             </select>
         </div>
       </Suspense>
+      <FilterSection />
+    </header>
   )
 }
