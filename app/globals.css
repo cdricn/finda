@@ -5,7 +5,10 @@
   --foreground: #171717;
 
   --color-black: #000000;
+  --color-black-opaque-80: rgba(0, 0, 0, .8);
+  --color-black-opaque-50: rgba(0, 0, 0, .5);
   --color-white: #ffffff;
+  --color-white-200: #e4e4e4;
   --color-purple-100: #b47bff;
   --color-purple-200: #8b4ddb;
   --color-purple-300: #7140B3;
@@ -17,20 +20,18 @@
   --color-grey-200: #c4c4c4;
   --color-grey-300: #adadad;
   --color-grey-500: #818181;
+  --color-pastel-itch: #fc778d;
   --color-light-itch: #ff4b69;
   --color-itch: #FF2449;
   --color-dark-itch: #dd2140;
 
-  --button-text: var(--color-white);
-  --button-primary: var(--color-black);
-  --button-primary-hover: var(--color-purple-400);
-  --button-secondary: var(--color-blue-300);
-  --button-secondary-hover: var(--color-blue-500);
-  --button-brand: var(--color-purple-300);
-  --button-brand-hover: var(--color-purple-400);
+  --filter-icon-color: var(--color-grey-200);
 
-  --button-filterOption: var(--color-grey-100);
-  --button-filterOption-selected: var(--color-purple-400);
+  --tag-bgcolor: var(--color-white-200);
+  --tag-bgcolor-active: var(--color-itch);
+
+  --fontcolor-default: var(--color-black);
+  --fontcolor-tag-active: var(--color-white);
 
   --text-secondary: var(--color-grey-300);
   --text-brand: var(--color-purple-300);

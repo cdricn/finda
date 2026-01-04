@@ -15,14 +15,6 @@
   flex-direction: column;
 }
 
-.header-section {
-  display: flex;
-  flex-direction: column;
-  justify-content: end;
-  height: 230px;
-}
-
-
 .posts-container {
   padding-top: 10px;
   position: relative;
