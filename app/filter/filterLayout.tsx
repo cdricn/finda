@@ -1,22 +1,26 @@
 'use client';
-
 import styles from './filter.module.css';
-import { FaFilter } from "react-icons/fa6";
+import Header from '../components/header';
+import FilterJams from './filterJams';
+import FilterTags from './tag';
 import { useRouter } from 'next/navigation';
 import { useState, useEffect } from 'react';
-import FilterTag from './filterTag';
+import { TagType, GameJam } from '../lib/interface';
 
-interface TagType {
-  [tag:string] : boolean;
-}
-
-export default function FilterSection() {
+export default function FilterLayout() {
   const [tags, setTags] = useState<TagType>({
     all: true,
     developer: false,
     artist: false,
     composer: false
   })
+  const [selectedJam, setSelectedJam] = useState<GameJam>({
+    title: '',
+    url: '',
+    members: 0,
+    deadline: '',
+    host: ''
+  });
   const router = useRouter();
 
   useEffect(()=>{
@@ -35,7 +39,7 @@ export default function FilterSection() {
     else {
       router.push("?tags="+ routerTagsArray)
     }
-  }, [tags])
+  }, [selectedJam, tags])
 
   function handleClick(tag:string) {
     setTags(prev=>{
@@ -53,13 +57,15 @@ export default function FilterSection() {
     })
   }
 
+  function onChange(newSelectedJam:GameJam) {
+    setSelectedJam(newSelectedJam);
+  }
+  
   return (
-    <div className={styles['filter-section']}>
-      <FaFilter />
-      <FilterTag tag={'all'} isActive={tags.all} handleClick={handleClick}/>
-      <FilterTag tag={'developer'} isActive={tags.developer} handleClick={handleClick}/>
-      <FilterTag tag={'artist'} isActive={tags.artist} handleClick={handleClick}/>
-      <FilterTag tag={'composer'} isActive={tags.composer} handleClick={handleClick}/>
+    <div>
+      <Header jamDetails={selectedJam}/>
+      <FilterJams onChange={onChange}/>
+      <FilterTags tags={tags} handleClick={handleClick}/>
     </div>
   )
 }

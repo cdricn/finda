@@ -2,7 +2,7 @@
 
 import styles from './filter.module.css';
 
-export default function FilterTag({tag, isActive, handleClick}:{tag: string, isActive:Boolean, handleClick:Function}) {
+export default function Tag({tag, isActive, handleClick}:{tag: string, isActive:Boolean, handleClick:Function}) {
   function onClick() {
     handleClick(tag);
   } 

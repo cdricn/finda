@@ -18,3 +18,26 @@
   color: var(--fontcolor-default);
   user-select: none;
 }
+
+.select-container {
+  padding-top: 5px;
+  width: fit-content;
+}
+.gamejams-select {
+  border: 0;
+  padding: 5px;
+  font-size: var(--fs-filter-body);
+}
+
+.gamejam-info {
+  padding-top: 10px;
+  display: flex;
+  gap: 10px;
+  width: fit-content;
+}
+.gamejam-info > span {
+  font-size: var(--fs-filter-body);
+}
+.gamejam-info-colored {
+  color: var(--color-dark-itch);
+}
