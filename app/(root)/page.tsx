@@ -1,19 +1,21 @@
 import styles from './page.module.css';
-import Header from '../components/header';
+import SelectJam from '../filter/filterJams';
 import ErrorMessage from '../components/errormessage';
 import Posts from '../components/posts';
+import FilterLayout from '../filter/filterLayout';
 
 export default function Forums() {
 
   return (
-    <main className={styles['main-container']}>
-      <section className={styles['content-section']}>
-        <Header />
-        <section className={styles['posts-section']}>
+    <>
+      <main className={styles['main-container']}>
+        <section>
+          <FilterLayout />
         </section>
-      </section>
-      <section className={styles['filter-section']}>
-      </section>
-    </main>
+        <section className={styles['content-section']}>
+          <Posts link={''}/>
+        </section>
+      </main>
+    </>
   )
 }

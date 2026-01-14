@@ -14,34 +14,3 @@
   display: flex;
   flex-direction: column;
 }
-
-.posts-container {
-  padding-top: 10px;
-  position: relative;
-  display: grid;
-  gap: 10px;
-}
-
-.post-card {
-  padding: 10px;
-  width: 100%;
-}
-.post-card:hover {
-  background-color: var(--post-hover);
-}
-.post-card > h2 {
-  font-size: var(--fs-post-header-2);
-  color: var(--post-header);
-}
-.post-card > p {
-  font-size: var(--fs-post-body-2);
-}
-
-.divider {
-  position: absolute;
-  width: 100%;
-  height: 1px;
-  left: 0px;
-  bottom: -5px;
-  background-color: var(--bg-divider);
-}
