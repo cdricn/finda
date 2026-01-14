@@ -5,3 +5,7 @@ export interface GameJam {
   deadline: string;
   host: string;
 }
+
+export interface TagType {
+  [tag:string] : boolean;
+}
