@@ -1,6 +1,4 @@
 import type { Metadata } from "next";
-import { FetchJams } from "./api/fetch/dataFetcher";
-import { FetchJamsContextProvider } from "./lib/fetchJamsContextProvider";
 import localFont from "next/font/local"
 import "./globals.css";
 
@@ -19,14 +17,11 @@ export default function RootLayout({
 }: Readonly<{
   children: React.ReactNode;
 }>) {
-  const fetchJamsPromise = FetchJams();
 
   return (
     <html lang="en">
       <body className={`${inter.variable}`}>
-        <FetchJamsContextProvider fetchJamsPromise={fetchJamsPromise}>
-          {children}
-        </FetchJamsContextProvider>
+        {children}
       </body>
     </html>
   );
