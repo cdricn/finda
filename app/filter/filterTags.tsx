@@ -1,12 +1,10 @@
-'use client';
-
 import styles from './filter.module.css';
 import { FaFilter } from "react-icons/fa6";
 import Tag from './tag';
-import { TagType } from '../lib/interface';
+import type { TagType } from '../lib/interface';
 
 export default function FilterTags({tags, handleClick}:{tags:TagType, handleClick:Function}) {
-
+  
   return (
     <div className={styles['filter-section']}>
       <FaFilter />

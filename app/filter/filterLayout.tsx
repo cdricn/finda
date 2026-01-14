@@ -1,8 +1,8 @@
 'use client';
-import styles from './filter.module.css';
+
 import Header from '../components/header';
 import FilterJams from './filterJams';
-import FilterTags from './tag';
+import FilterTags from './filterTags';
 import { useRouter } from 'next/navigation';
 import { useState, useEffect } from 'react';
 import { TagType, GameJam } from '../lib/interface';
@@ -42,25 +42,35 @@ export default function FilterLayout() {
   }, [selectedJam, tags])
 
   function handleClick(tag:string) {
-    setTags(prev=>{
-      if(tag === 'all') {
-        return {
-          all: true,
-          developer: false,
-          artist: false,
-          composer: false
-        }
-      }
-      else {
-        return {...prev, all: false, [tag]:!tags[tag]}
-      }
-    })
+    let tempTags = tags;
+    let defaultTags = {
+      all: true,
+      developer: false,
+      artist: false,
+      composer: false
+    };
+    
+    //Check first which one is clicked
+    if(tag==='all') {
+      tempTags = defaultTags;
+    }
+    else {
+      tempTags = {...tempTags, all:false, [tag]:!tags[tag]};
+    }
+
+    //Then check if all are empty
+    if (Object.values(tempTags).every(bool=>bool===false)) {
+      tempTags = defaultTags;
+    }
+
+    //Finally, set the actual state with the result 
+    setTags(tempTags);
   }
 
   function onChange(newSelectedJam:GameJam) {
     setSelectedJam(newSelectedJam);
   }
-  
+
   return (
     <div>
       <Header jamDetails={selectedJam}/>

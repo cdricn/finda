@@ -4,19 +4,18 @@ import styles from './filter.module.css';
 import useSWR from 'swr'
 import { FetchJams } from '../api/fetch/dataFetcher';
 import { GameJam } from '../lib/interface';
-import { useEffect } from 'react';
 
 export default function FilterJams({onChange}:{onChange:Function}) {
   const { data, error } = useSWR<GameJam[]>('/api/jams', FetchJams, {
     onErrorRetry: (error, key, config, revalidate, { retryCount }) => {
-      if (error.status === 404) return
-      if (retryCount >= 10) return
-      setTimeout(() => revalidate({ retryCount }), 5000)
+      if (error.status === 404) return;
+      if (retryCount >= 10) return;
+      setTimeout(() => revalidate({ retryCount }), 5000);
     }
   })
 
-  if(!data) {console.log(typeof data); return <>Loading</>}
-  if(error) {console.log(typeof data === undefined); return <>Error</>}
+  if(!data) return <>Loading</>;
+  if(error) return <>Error</>;
   
   function handleChange(e:any) {
     if (data) {
@@ -27,11 +26,8 @@ export default function FilterJams({onChange}:{onChange:Function}) {
 
   function mapEntries() {
     let selectables;
-    let fetchedEntries : GameJam[] = []
-    if (data) 
-    if (Object.keys(data).length > 0) {
-      console.log("wtf", data)
-      console.log("wtf type", typeof data)
+    let fetchedEntries : GameJam[] = [];
+    if (data && Object.keys(data).length > 0) {
       fetchedEntries = data;
       selectables = fetchedEntries.map((jam, index)=>{
         return (
@@ -43,7 +39,7 @@ export default function FilterJams({onChange}:{onChange:Function}) {
               {jam.title} ({jam.members})
           </option>
         )
-      })
+      });
     }
     return selectables;
   }
