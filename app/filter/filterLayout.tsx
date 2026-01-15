@@ -43,9 +43,9 @@ export default function FilterLayout({handleJamChange}:FilterLayoutType) {
     else {
       router.push("?tags="+ routerTagsArray)
     }
-    
+
     handleJamChange(selectedJam.url);
-  }, [selectedJam, tagFilter]);
+  }, [selectedJam, tagFilter, router]);
 
   function setTags(tags:TagType) {
     setTagFilter(tags);

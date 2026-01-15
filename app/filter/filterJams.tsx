@@ -21,7 +21,7 @@ export default function FilterJams({onChange}:FilterJamsType) {
   if(!data) return <>Loading</>;
   if(error) return <>Error</>;
   
-  function handleChange(e:any) {
+  function handleChange(e:React.ChangeEvent<HTMLSelectElement>) {
     if (data) {
       const newSelectedJam = data.find((item)=>item.title === e.target.value);
       if (newSelectedJam) onChange(newSelectedJam);
@@ -47,7 +47,7 @@ export default function FilterJams({onChange}:FilterJamsType) {
     }
     return selectables;
   }
-
+  
   return (
     <div className={styles['select-container']}>
       <select id="gamejams" className={styles['gamejams-select']} 
