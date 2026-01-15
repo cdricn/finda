@@ -28,33 +28,25 @@ export default function FilterJams({onChange}:FilterJamsType) {
     }
   }
 
-  function mapEntries() {
-    let selectables;
-    let fetchedEntries : GameJam[] = [];
-    if (data && Object.keys(data).length > 0) {
-      fetchedEntries = data;
-      selectables = fetchedEntries.map((jam, index)=>{
-        return (
-          <option 
-            key={index} 
-            id={jam.title}
-            value={jam.title}
-            >
-              {jam.title} ({jam.members})
-          </option>
-        )
-      });
-    }
-    return selectables;
-  }
-  
   return (
     <div className={styles['select-container']}>
       <select id="gamejams" className={styles['gamejams-select']} 
         onChange={handleChange}
         defaultValue="default">
           <option value="default" disabled>--Choose a gamejam--</option>
-          {mapEntries()}
+          {data && Object.keys(data).length > 0 ? 
+            data.map((jam, index)=>{
+              return (
+                <option 
+                  key={index} 
+                  id={jam.title}
+                  value={jam.title}
+                  >
+                    {jam.title} ({jam.members})
+                </option>
+              )
+            }) : <></>
+          }
       </select>
     </div>
   )

@@ -20,7 +20,7 @@ export default function FilterTags({setTags}:FilterTagsType) {
 
   useEffect(()=>{
     setTags(activeTags);
-  }, [setTags, activeTags]);
+  }, [activeTags]);
 
   function handleClick(tag:string) {
     const defaultTags = {
