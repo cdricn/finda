@@ -5,7 +5,11 @@ import useSWR from 'swr'
 import { FetchJams } from '../api/fetch/dataFetcher';
 import { GameJam } from '../lib/interface';
 
-export default function FilterJams({onChange}:{onChange:Function}) {
+type FilterJamsType = {
+  onChange: (func:GameJam) => void;
+}
+
+export default function FilterJams({onChange}:FilterJamsType) {
   const { data, error } = useSWR<GameJam[]>('/api/jams', FetchJams, {
     onErrorRetry: (error, key, config, revalidate, { retryCount }) => {
       if (error.status === 404) return;

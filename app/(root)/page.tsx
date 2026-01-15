@@ -7,7 +7,7 @@ import FilterLayout from '../filter/filterLayout';
 export default function Forums() {
 
   function handleJamChange(url:string) {
-    console.log(url)
+    console.log('url in main',url)
   }
 
   return (

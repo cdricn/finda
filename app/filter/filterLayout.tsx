@@ -7,8 +7,12 @@ import { useRouter } from 'next/navigation';
 import { useState, useEffect } from 'react';
 import { TagType, GameJam } from '../lib/interface';
 
-export default function FilterLayout() {
-  const [tags, setTags] = useState<TagType>({
+type FilterLayoutType = {
+  handleJamChange: (func: string) => void;
+}
+
+export default function FilterLayout({handleJamChange}:FilterLayoutType) {
+  const [tagFilter, setTagFilter] = useState<TagType>({
     all: true,
     developer: false,
     artist: false,
@@ -26,45 +30,25 @@ export default function FilterLayout() {
   useEffect(()=>{
     const routerTagsArray = [];
     // Push active tags into the router tags array
-    for(const item in tags) {
-      if(tags[item]) {
+    for(const item in tagFilter) {
+      if(tagFilter[item]) {
         routerTagsArray.push(item);
       } 
     }
 
     // Push tags into router
-    if(tags.all || routerTagsArray.length==0) {
+    if(tagFilter.all || routerTagsArray.length==0) {
       router.push("/");
     } 
     else {
       router.push("?tags="+ routerTagsArray)
     }
-  }, [selectedJam, tags])
-
-  function handleClick(tag:string) {
-    let tempTags = tags;
-    let defaultTags = {
-      all: true,
-      developer: false,
-      artist: false,
-      composer: false
-    };
     
-    //Check first which one is clicked
-    if(tag==='all') {
-      tempTags = defaultTags;
-    }
-    else {
-      tempTags = {...tempTags, all:false, [tag]:!tags[tag]};
-    }
+    handleJamChange(selectedJam.url);
+  }, [selectedJam, tagFilter]);
 
-    //Then check if all are empty
-    if (Object.values(tempTags).every(bool=>bool===false)) {
-      tempTags = defaultTags;
-    }
-
-    //Finally, set the actual state with the result 
-    setTags(tempTags);
+  function setTags(tags:TagType) {
+    setTagFilter(tags);
   }
 
   function onChange(newSelectedJam:GameJam) {
@@ -75,7 +59,7 @@ export default function FilterLayout() {
     <div>
       <Header jamDetails={selectedJam}/>
       <FilterJams onChange={onChange}/>
-      <FilterTags tags={tags} handleClick={handleClick}/>
+      <FilterTags setTags={setTags}/>
     </div>
   )
 }
