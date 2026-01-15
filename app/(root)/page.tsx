@@ -1,16 +1,20 @@
+'use client'
+
 import styles from './page.module.css';
-import SelectJam from '../filter/filterJams';
-import ErrorMessage from '../components/errormessage';
 import Posts from '../components/posts';
 import FilterLayout from '../filter/filterLayout';
 
 export default function Forums() {
 
+  function handleJamChange(url:string) {
+    console.log(url)
+  }
+
   return (
     <>
       <main className={styles['main-container']}>
         <section>
-          <FilterLayout />
+          <FilterLayout handleJamChange={handleJamChange}/>
         </section>
         <section className={styles['content-section']}>
           <Posts link={''}/>
