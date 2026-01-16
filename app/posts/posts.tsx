@@ -17,14 +17,26 @@ export default function Posts({link}:{link: string}) {
   if(error) return <>Error</>;
 
   return (
-    <div>
+    <ul className={styles['entries-container']}>
       {data && Object.keys(data).length > 0 ? 
         data.map((entry, index)=>{
           return (
-            <></>
+            <li className={styles['entry-card']}>
+              <a href={entry.url} target='_'>
+                <div>
+                  <h2>{entry.title}</h2>
+                  <span>{entry.author}</span>
+                  <p>{entry.description}</p>
+                </div>
+                <div>
+                  <span>{entry.datePosted}</span>
+                  <span>{entry.replies}</span>
+                </div>
+              </a>
+            </li>
           ) 
         }) : <></>
       }
-    </div>
+    </ul>
   )
 }
