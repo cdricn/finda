@@ -1,4 +1,8 @@
-.filter-section {
+.filters-wrapper {
+  padding: 3px;
+}
+
+.filtertags-section {
   padding-top: 1rem;
   position: relative;
   display: flex;

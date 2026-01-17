@@ -12,3 +12,6 @@
   color: var(--color-light-itch);
   line-height: 100%;
 }
+.header > a {
+  text-decoration: none;
+}

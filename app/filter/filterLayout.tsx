@@ -1,5 +1,6 @@
 'use client';
 
+import styles from './filter.module.css'
 import Header from '../components/header';
 import FilterJams from './filterJams';
 import FilterTags from './filterTags';
@@ -56,10 +57,12 @@ export default function FilterLayout({handleJamChange}:FilterLayoutType) {
   }
 
   return (
-    <div>
+    <>
       <Header jamDetails={selectedJam}/>
-      <FilterJams onChange={onChange}/>
-      <FilterTags setTags={setTags}/>
-    </div>
+      <div className={styles['filters-wrapper']}>
+        <FilterJams onChange={onChange}/>
+        <FilterTags setTags={setTags}/>
+      </div>
+    </>
   )
 }

@@ -49,7 +49,7 @@ export default function FilterTags({setTags}:FilterTagsType) {
   }
   
   return (
-    <div className={styles['filter-section']}>
+    <div className={styles['filtertags-section']}>
       <FaFilter />
       <Tag tag={'all'} isActive={activeTags.all} handleClick={handleClick}/>
       <Tag tag={'developer'} isActive={activeTags.developer} handleClick={handleClick}/>
