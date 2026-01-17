@@ -8,6 +8,7 @@
   --color-black-opaque-80: rgba(0, 0, 0, .8);
   --color-black-opaque-50: rgba(0, 0, 0, .5);
   --color-white: #ffffff;
+  --color-white-100: #ececec;
   --color-white-200: #e4e4e4;
   --color-purple-100: #b47bff;
   --color-purple-200: #8b4ddb;
@@ -27,6 +28,8 @@
 
   --filter-icon-color: var(--color-grey-200);
 
+  --card-background-hover: var(--color-white-100);
+
   --tag-bgcolor: var(--color-white-200);
   --tag-bgcolor-active: var(--color-itch);
 
@@ -36,19 +39,20 @@
   --text-secondary: var(--color-grey-300);
   --text-brand: var(--color-purple-300);
 
-  --post-header: var(--color-purple-500);
-  --post-hover: var(--color-grey-100);
+  --post-header: var(--color-itch);
+  --post-hover: var(--color-dark-itch);
 
-  --bg-divider: var(--color-grey-300);
+  --bg-divider: var(--color-grey-100);
   --bg-shadow: var(--color-grey-300);
 
 
-  --fs-header: 5rem; /*80px;*/
+  --fs-header: 3rem; /*48px;*/
   --fs-header-2: 2rem; /*32px;*/
   --fs-post-header: 1.5rem; /*24px;*/
   --fs-post-header-2: 1.25rem; /*20px;*/
   --fs-post-body: 1rem; /*16px;*/
   --fs-post-body-2: .875rem; /*14px;*/
+  --fs-post-details: .75rem; /*12px;*/
   --fs-options: 1.5rem; /*20px;*/
   --fs-filter-header: 1rem; /*16px;*/
   --fs-filter-body: .875rem; /*14px;*/
@@ -73,7 +77,6 @@
 }
 
 a {
-  text-decoration: none;
   color: inherit;
 }
 
