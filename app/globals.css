@@ -37,10 +37,11 @@
   --fontcolor-tag-active: var(--color-white);
 
   --text-secondary: var(--color-grey-300);
-  --text-brand: var(--color-purple-300);
 
   --post-header: var(--color-itch);
   --post-hover: var(--color-dark-itch);
+  --post-author: var(--color-grey-500);
+  --post-date: var(--color-grey-500);
 
   --bg-divider: var(--color-grey-100);
   --bg-shadow: var(--color-grey-300);

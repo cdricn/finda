@@ -10,7 +10,7 @@ export default function Header({jamDetails}:{jamDetails : GameJam}) {
           <a href={jamDetails.url} target='_'>{jamDetails.title}</a>
         }
       </h1>
-      <div className={styles['gamejam-info']}>
+      <div className={styles['header-info']}>
         <span>Hosted by: {jamDetails.host ? jamDetails.host : '--'}</span>
         <span>Members: {jamDetails.members}</span>
       </div>

@@ -22,19 +22,31 @@
 .card-content {
   flex-grow: 1;
 }
-.card-content > a {
+
+.card-title {
   font-size: var(--fs-post-body);
   color: var(--post-header);
   text-decoration: none;
+  font-weight: 600;
 }
-.card-content > span, .card-content > p {
+
+.card-author {  
+  color: var(--post-author);
+}
+.card-author, .card-content > p {
   font-size: var(--fs-post-body-2);
 }
 
 .card-details {
   min-width: 110px;
   max-width: 110px;
-}
-.card-details > span {
   font-size: var(--fs-post-body-2);
+}
+
+.card-date {
+  color: var(--post-date);
+}
+
+.card-replies > span {
+  font-weight: 700;
 }
