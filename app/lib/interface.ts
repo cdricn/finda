@@ -9,7 +9,7 @@ export interface GameJam {
 export interface ForumPosts {
   title: string,
   url: string,
-  description: string,
+  content: string,
   replies: number,
   datePosted: string,
   author: string
