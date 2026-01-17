@@ -1,7 +1,7 @@
 'use client';
 
 import styles from './filter.module.css'
-import Header from '../components/header';
+import JamTitle from '../components/jamTitle';
 import FilterJams from './filterJams';
 import FilterTags from './filterTags';
 import { useRouter } from 'next/navigation';
@@ -57,12 +57,12 @@ export default function FilterLayout({handleJamChange}:FilterLayoutType) {
   }
 
   return (
-    <>
-      <Header jamDetails={selectedJam}/>
+    <div className={styles['jam-info-container']}>
+      <JamTitle jamDetails={selectedJam}/>
       <div className={styles['filters-wrapper']}>
         <FilterJams onChange={onChange}/>
         <FilterTags setTags={setTags}/>
       </div>
-    </>
+    </div>
   )
 }

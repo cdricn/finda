@@ -1,3 +1,15 @@
+.jam-info-container {
+  position: relative;
+}
+.jam-info-container::after {
+  content: '';
+  position: absolute;
+  bottom: -10px;
+  height: 2px;
+  width: 100%;
+  background-color: var(--bg-shadow);
+}
+
 .filters-wrapper {
   padding: 3px;
 }

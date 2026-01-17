@@ -1,0 +1,24 @@
+.jam-info-container {
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  justify-content: end;
+  min-height: 200px;
+}
+
+.jam-title {
+  font-size: var(--fs-header);
+  font-weight: 600;
+  color: var(--color-light-itch);
+  line-height: 100%;
+}
+.jam-title > a {
+  text-decoration: none;
+}
+
+.jam-info {
+  padding-top: 5px;
+}
+.jam-info > span:nth-child(2) {
+  padding-left: 10px;
+}
