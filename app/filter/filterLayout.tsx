@@ -18,7 +18,7 @@ export default function FilterLayout({handleJamChange}:FilterLayoutType) {
     developer: false,
     artist: false,
     composer: false
-  })
+  });
   const [selectedJam, setSelectedJam] = useState<GameJam>({
     title: '',
     url: '',
@@ -42,7 +42,7 @@ export default function FilterLayout({handleJamChange}:FilterLayoutType) {
       router.push("/");
     } 
     else {
-      router.push("?tags="+ routerTagsArray)
+      router.push("?tags="+ routerTagsArray);
     }
 
     handleJamChange(selectedJam.url);

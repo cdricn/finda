@@ -1,11 +1,19 @@
 .header-container {
-
+  padding: 10px;
+  position: fixed;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  width: 100%;
 }
 
 .header-title {
-
+  font-size: var(--fs-post-header);
+  color: var(--color-header);
 }
 
 .github-icon {
-  
+  background-color: red;
+  width: 30px;
+  height: 30px;
 }

@@ -16,10 +16,10 @@ export default function Posts({link}:{link: string}) {
       if (retryCount >= 10) return;
       setTimeout(() => revalidate({ retryCount }), 5000);
     }
-  })
+  });
 
   //there's a better way to check this bruh ong
-  if(data) if(Object.keys(data).length <= 0) return <PlaceholderErrorFetch /> 
+  if(data) if(Object.keys(data).length <= 0) return <PlaceholderErrorFetch />;
   if(isLoading) return <PostCardSkeleton />; 
   if(error) return <PlaceholderError404 />;
 
@@ -32,7 +32,6 @@ export default function Posts({link}:{link: string}) {
           })}
         </ul> :
         <PlaceholderNoResult />
-        //<PostCardSkeleton /> // for testing
       }
     </>
   )

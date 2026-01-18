@@ -17,7 +17,7 @@ export default function FilterJams({onChange}:FilterJamsType) {
       if (retryCount >= 10) return;
       setTimeout(() => revalidate({ retryCount }), 5000);
     }
-  })
+  });
 
   if(!data) return <DisabledSelect />; //MAKE THIS UNSELECTABLE
   if(error) return <DisabledSelect />;
