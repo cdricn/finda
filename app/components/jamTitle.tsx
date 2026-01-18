@@ -5,9 +5,13 @@ export default function JamTitle({jamDetails}:{jamDetails : GameJam}) {
   return (
     <div className={styles['jam-info-container']}>
       {jamDetails.url == ''?
-        <h1 className={styles['jam-title']}>
-          <p>Select a gamejam!</p>
-        </h1> :
+        <>
+          <h1 className={styles['jam-title']}>
+            <p>Select a gamejam!</p>
+          </h1>
+          <div className={styles['jam-info']}></div>
+        </>
+         :
         <>
           <h1 className={styles['jam-title']}>
             <a href={jamDetails.url} target='_'>{jamDetails.title}</a>

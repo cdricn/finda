@@ -19,7 +19,7 @@ export default function FilterJams({onChange}:FilterJamsType) {
     }
   })
 
-  if(!data) return <DisabledSelect />;
+  if(!data) return <DisabledSelect />; //MAKE THIS UNSELECTABLE
   if(error) return <DisabledSelect />;
   
   function handleChange(e:React.ChangeEvent<HTMLSelectElement>) {
@@ -31,24 +31,25 @@ export default function FilterJams({onChange}:FilterJamsType) {
 
   return (
     <div className={styles['select-container']}>
-      <select id="gamejams" className={styles['gamejams-select']} 
+      {data && Object.keys(data).length > 0 ? 
+        <select id="gamejams" className={styles['gamejams-select']} 
         onChange={handleChange}
         defaultValue="default">
           <option value="default" disabled>--Choose a gamejam--</option>
-          {data && Object.keys(data).length > 0 ? 
-            data.map((jam, index)=>{
-              return (
-                <option 
-                  key={index} 
-                  id={jam.title}
-                  value={jam.title}
-                  >
-                    {jam.title} ({jam.members})
-                </option>
-              )
-            }) : <></>
-          }
-      </select>
+          {data.map((jam, index)=>{
+            return (
+              <option 
+                key={index} 
+                id={jam.title}
+                value={jam.title}
+                >
+                  {jam.title} ({jam.members})
+              </option>
+            )
+          })}
+        </select> :
+        <DisabledSelect />
+      }
     </div>
   )
 }
