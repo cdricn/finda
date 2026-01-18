@@ -8,10 +8,15 @@ type TagType = {
 }
 
 export default function Tag({ tag, isActive, handleClick }: TagType ) {
+
+  const style = {
+    backgroundColor: 'var(--tag-bgcolor-active)',
+    color: 'var(--tag-color-active)'
+  }
   
   return (
     <div className={styles['tag']} onClick={()=>handleClick(tag)}
-      style={isActive ? {backgroundColor: 'var(--tag-bgcolor-active)'} : undefined}>
+      style={isActive ? style : undefined}>
       <span>{tag}</span>
     </div>
   )

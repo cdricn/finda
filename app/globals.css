@@ -32,6 +32,7 @@
 
   --tag-bgcolor: var(--color-white-200);
   --tag-bgcolor-active: var(--color-itch);
+  --tag-color-active: var(--color-white);
 
   --fontcolor-default: var(--color-black);
   --fontcolor-tag-active: var(--color-white);
@@ -45,6 +46,7 @@
 
   --bg-divider: var(--color-grey-100);
   --bg-shadow: var(--color-grey-200);
+  --bg-post-skeleton: var(--color-white-100);
 
   --select-disabled: var(--color-grey-500);
 
