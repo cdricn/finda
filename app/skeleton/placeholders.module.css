@@ -1,0 +1,11 @@
+.no-result-placeholder {
+  margin: auto;
+  padding-top: 3rem;
+  text-align: center;
+  color: var(--color-noresult);
+}
+
+.no-result-placeholder > span:nth-child(1) {
+  font-size: var(--fs-header);
+  font-weight: 500;
+}
