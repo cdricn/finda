@@ -7,7 +7,7 @@ export default function JamTitle({jamDetails}:{jamDetails : GameJam}) {
       {jamDetails.url == ''?
         <>
           <h1 className={styles['jam-title']}>
-            <p>Select a gamejam!</p>
+            <p>Find a team!</p>
           </h1>
           <div className={styles['jam-info']}></div>
         </>
