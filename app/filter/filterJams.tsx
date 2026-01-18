@@ -4,6 +4,7 @@ import styles from './filter.module.css';
 import useSWR from 'swr'
 import { FetchJams } from '../api/fetch/dataFetcher';
 import { GameJam } from '../lib/interface';
+import DisabledSelect from '../skeleton/disabledSelect';
 
 type FilterJamsType = {
   onChange: (func:GameJam) => void;
@@ -18,8 +19,8 @@ export default function FilterJams({onChange}:FilterJamsType) {
     }
   })
 
-  if(!data) return <>Loading</>;
-  if(error) return <>Error</>;
+  if(!data) return <DisabledSelect />;
+  if(error) return <DisabledSelect />;
   
   function handleChange(e:React.ChangeEvent<HTMLSelectElement>) {
     if (data) {

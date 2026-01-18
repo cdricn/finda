@@ -1,0 +1,8 @@
+.select-disabled {
+  border: 0;
+  padding: 5px;
+  font-size: var(--fs-filter-body);
+}
+.select-disabled {
+  color: var(--select-disabled);
+}

@@ -46,6 +46,8 @@
   --bg-divider: var(--color-grey-100);
   --bg-shadow: var(--color-grey-200);
 
+  --select-disabled: var(--color-grey-500);
+
 
   --fs-header: 3rem; /*48px;*/
   --fs-header-2: 2rem; /*32px;*/
