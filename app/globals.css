@@ -37,6 +37,7 @@
   --fontcolor-default: var(--color-black);
   --fontcolor-tag-active: var(--color-white);
   --color-noresult: var(--color-grey-200);
+  --color-header: var(--color-grey-300);
 
   --text-secondary: var(--color-grey-300);
 

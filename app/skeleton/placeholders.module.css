@@ -6,6 +6,6 @@
 }
 
 .no-result-placeholder > span:nth-child(1) {
-  font-size: var(--fs-header);
+  font-size: var(--fs-header-2);
   font-weight: 500;
 }
