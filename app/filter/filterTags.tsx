@@ -29,7 +29,7 @@ export default function FilterTags() {
 
     // Push tags into router
     if(Object.keys(params).length > 0) {
-      router.push(`?tags=`+ routerTagsArray);
+      router.push(`?tags=`+ routerTagsArray.join('&tags='));
     } else {
       router.push(``);
     }

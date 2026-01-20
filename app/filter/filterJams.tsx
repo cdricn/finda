@@ -17,7 +17,6 @@ export default function FilterJams() {
     deadline: '',
     host: ''
   });
-
   const router = useRouter();
   
   const { data, isLoading, error } = useSWR<GameJam[]>('/api/posts', FetchJams, {
