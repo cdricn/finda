@@ -1,7 +1,7 @@
 import styles from './posts.module.css';
 import { ForumPosts } from '../lib/interface';
 
-export default function PostCard({entry, key}:{entry:ForumPosts, key:string}) {
+export default function PostCard({entry}:{entry:ForumPosts}) {
 
   const date = entry.datePosted.slice(3, -16) + entry.datePosted.slice(0, 3);
   const replies = entry.replies > 0 ? 
@@ -11,7 +11,7 @@ export default function PostCard({entry, key}:{entry:ForumPosts, key:string}) {
     <span>No replies</span>;
 
   return (
-    <li className={styles['post-card']} key={key}>
+    <li className={styles['post-card']}>
       <div className={styles['card-content']}>
         <a href={entry.url} target='_' className={styles['card-title']}>
           <h2>{entry.title}</h2>
