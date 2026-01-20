@@ -1,68 +1,13 @@
-'use client';
+import styles from './filterLayout.module.css'
+import FilterJams from "./filterJams";
+import FilterTags from "./filterTags";
 
-import styles from './filter.module.css'
-import JamTitle from '../components/jamTitle';
-import FilterJams from './filterJams';
-import FilterTags from './filterTags';
-import { useRouter } from 'next/navigation';
-import { useState, useEffect } from 'react';
-import { TagType, GameJam } from '../lib/interface';
-
-type FilterLayoutType = {
-  handleJamChange: (func: string) => void;
-}
-
-export default function FilterLayout({handleJamChange}:FilterLayoutType) {
-  const [tagFilter, setTagFilter] = useState<TagType>({
-    all: true,
-    developer: false,
-    artist: false,
-    composer: false
-  });
-  const [selectedJam, setSelectedJam] = useState<GameJam>({
-    title: '',
-    url: '',
-    members: 0,
-    deadline: '',
-    host: ''
-  });
-  const router = useRouter();
-
-  useEffect(()=>{
-    const routerTagsArray = [];
-    // Push active tags into the router tags array
-    for(const item in tagFilter) {
-      if(tagFilter[item]) {
-        routerTagsArray.push(item);
-      } 
-    }
-
-    // Push tags into router
-    if(tagFilter.all || routerTagsArray.length==0) {
-      router.push("/");
-    } 
-    else {
-      router.push("?tags="+ routerTagsArray);
-    }
-
-    handleJamChange(selectedJam.url);
-  }, [selectedJam, tagFilter, router]);
-
-  function setTags(tags:TagType) {
-    setTagFilter(tags);
-  }
-
-  function onChange(newSelectedJam:GameJam) {
-    setSelectedJam(newSelectedJam);
-  }
-
+export default function FilterLayout() {
   return (
-    <div className={styles['jam-info-container']}>
-      <JamTitle jamDetails={selectedJam}/>
-      <div className={styles['filters-wrapper']}>
-        <FilterJams onChange={onChange}/>
-        <FilterTags setTags={setTags}/>
-      </div>
-    </div>
+    <section className={styles['layout-container']}>
+      <FilterJams />
+      <FilterTags />
+    </section>
   )
 }
+        
