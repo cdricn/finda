@@ -1,0 +1,17 @@
+.main-container {
+  margin: auto;
+  padding-top: 30px;
+  display: flex;
+  flex-direction: column;
+  gap: 30px;
+  width: 60%;
+  min-width: 700px;
+  max-width: 1200px;
+}
+
+.content-section {
+  padding: 10px;
+  flex: auto;
+  display: flex;
+  flex-direction: column;
+}
