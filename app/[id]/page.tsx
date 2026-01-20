@@ -8,6 +8,10 @@ export default function PostsPage() {
   return (
     <>
       <main className={styles['main-container']}>
+        <section className={styles['title-section']}>
+          <FilterJams />
+          <FilterTags />
+        </section>
         <section className={styles['content-section']}>
           <Posts />
         </section>
