@@ -5,21 +5,34 @@ import { FaFilter } from "react-icons/fa6";
 import Tag from './tag';
 import type { TagType } from '../lib/interface';
 import { useState, useEffect } from 'react';
+import { useParams, useRouter } from 'next/navigation';
 
-type FilterTagsType = {
-  setTags: (func: TagType) => void
-}
 
-export default function FilterTags({setTags}:FilterTagsType) {
+export default function FilterTags() {
   const [activeTags, setActiveTags] = useState<TagType>({
     all: true,
     developer: false,
     artist: false,
     composer: false
   });
+  const router = useRouter();
+  const params = useParams();
 
   useEffect(()=>{
-    setTags(activeTags);
+    const routerTagsArray = [];
+    // Push active tags into the router tags array
+    for(const item in activeTags) {
+      if(activeTags[item]) {
+        routerTagsArray.push(item);
+      } 
+    }
+
+    // Push tags into router
+    if(Object.keys(params).length > 0) {
+      router.push(`?tags=`+ routerTagsArray);
+    } else {
+      router.push(``);
+    }
   }, [activeTags]);
 
   function handleClick(tag:string) {
