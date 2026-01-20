@@ -1,7 +1,7 @@
-import styles from './jamTitle.module.css';
+import styles from './pageInfo.module.css';
 import { GameJam } from '@/app/lib/interface';
 
-export default function JamTitle({jamDetails}:{jamDetails : GameJam}) {
+export default function PageInfo({jamDetails}:{jamDetails : GameJam}) {
   return (
     <div className={styles['jam-info-container']}>
       {jamDetails.url == ''?
