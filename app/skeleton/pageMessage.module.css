@@ -1,6 +1,5 @@
 .no-result-placeholder {
   margin: auto;
-  padding-top: 3rem;
   text-align: center;
   color: var(--color-noresult);
 }
