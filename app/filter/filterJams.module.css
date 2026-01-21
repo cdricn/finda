@@ -1,9 +1,10 @@
 
 .select-container {
-  width: fit-content;
+  position: relative;
 }
 .gamejams-select {
   border: 1px solid var(--select-border-color);
   padding: 5px;
+  width: 300px;
   font-size: var(--fs-filter-body);
 }
