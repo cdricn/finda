@@ -1,5 +1,5 @@
 'use client';
-import styles from './filter.module.css';
+import styles from './filterTags.module.css';
 
 type TagType = {
   tag: string;

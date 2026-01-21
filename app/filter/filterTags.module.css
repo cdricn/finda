@@ -1,0 +1,20 @@
+.filtertags-section {
+  position: relative;
+  display: flex;
+  flex-wrap: wrap;
+  gap: 5px;
+  align-items: center;
+  color: var(--filter-icon-color);
+}
+
+.tag {
+  border-radius: 15px;
+  padding: 2px 10px 3px 10px;
+  color: var(--fontcolor-default);
+  background-color: var(--tag-bgcolor);
+}
+
+.tag > span {
+  font-size: var(--fs-filter-body);
+  user-select: none;
+}

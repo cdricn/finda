@@ -1,6 +1,6 @@
 'use client'
 
-import styles from './filter.module.css';
+import styles from './filterTags.module.css';
 import { FaFilter } from "react-icons/fa6";
 import Tag from './tag';
 import type { TagType } from '../lib/interface';
