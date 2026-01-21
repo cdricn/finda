@@ -1,0 +1,9 @@
+
+.select-container {
+  width: fit-content;
+}
+.gamejams-select {
+  border: 1px solid var(--select-border-color);
+  padding: 5px;
+  font-size: var(--fs-filter-body);
+}
