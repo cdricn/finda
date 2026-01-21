@@ -1,0 +1,55 @@
+.card-container {
+  padding-top: 5px;
+  padding-bottom: 10px;
+  position: relative;
+  display: flex;
+  align-items: center;
+  gap: 15px;
+}
+
+.card-container::after {
+  content: '';
+  position: absolute;
+  background-color: var(--bg-divider);
+  bottom: 0;
+  height: 1px;
+  width: 100%;
+}
+
+.card-content {
+  flex-grow: 1;
+}
+.card-title {
+  font-size: var(--fs-post-body);
+  color: var(--post-header);
+  text-decoration: none;
+  font-weight: 600;
+}
+.card-author {  
+  color: var(--post-author);
+}
+.card-author, .card-content > p {
+  font-size: var(--fs-post-body-2);
+}
+.card-details {
+  min-width: 110px;
+  font-size: var(--fs-post-body-2);
+}
+.card-date {
+  color: var(--post-date);
+}
+.card-replies > span {
+  font-weight: 700;
+}
+
+@media (width < 400px) {
+  .card-container {
+    flex-direction: column;  
+  }
+  .card-details {
+    display: flex;
+    flex-direction: row-reverse;
+    justify-content: space-around;
+    width: 100%;
+  }
+}

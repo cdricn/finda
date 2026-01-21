@@ -1,4 +1,4 @@
-import styles from './posts.module.css';
+import styles from './postCard.module.css';
 import { ForumPosts } from '../lib/interface';
 
 export default function PostCard({entry}:{entry:ForumPosts}) {
@@ -11,7 +11,7 @@ export default function PostCard({entry}:{entry:ForumPosts}) {
     <span>No replies</span>;
 
   return (
-    <li className={styles['post-card']}>
+    <li className={styles['card-container']}>
       <div className={styles['card-content']}>
         <a href={entry.url} target='_' className={styles['card-title']}>
           <h2>{entry.title}</h2>

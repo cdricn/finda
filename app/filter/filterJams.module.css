@@ -5,6 +5,7 @@
 .gamejams-select {
   border: 1px solid var(--select-border-color);
   padding: 5px;
-  width: 300px;
+  width: 40%;
+  min-width: 280px;
   font-size: var(--fs-filter-body);
 }
