@@ -1,4 +1,4 @@
-.jam-info-container {
+.page-info-container {
   position: relative;
   display: flex;
   flex-direction: column;
@@ -6,19 +6,16 @@
   min-height: 200px;
 }
 
-.jam-title {
+.page-title {
   font-size: var(--fs-header);
   font-weight: 600;
   color: var(--color-light-itch);
-  line-height: 100%;
+  line-height: 90%;
 }
-.jam-title > a {
+.page-title > a {
   text-decoration: none;
 }
 
-.jam-info {
+.page-info {
   padding-top: 5px;
-}
-.jam-info > span:nth-child(2) {
-  padding-left: 10px;
 }
