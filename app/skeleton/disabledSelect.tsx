@@ -1,4 +1,4 @@
-import styles from './skeleton.module.css';
+import styles from './disabledSelect.module.css';
 
 export default function DisabledSelect() {
   return (
