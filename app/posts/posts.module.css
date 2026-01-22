@@ -1,52 +1,6 @@
 .posts-container {
   position: relative;
   list-style-type: none;
-}
-
-.post-card {
-  margin-bottom: 15px;
-  position: relative;
-  display: flex;
-  align-items: center;
-  gap: 10px;
-}
-.post-card::after {
-  content: '';
-  position: absolute;
-  background-color: var(--bg-divider);
-  bottom: -8px;
-  height: 1px;
-  width: 100%;
-}
-
-.card-content {
-  flex-grow: 1;
-}
-
-.card-title {
-  font-size: var(--fs-post-body);
-  color: var(--post-header);
-  text-decoration: none;
-  font-weight: 600;
-}
-
-.card-author {  
-  color: var(--post-author);
-}
-.card-author, .card-content > p {
-  font-size: var(--fs-post-body-2);
-}
-
-.card-details {
-  min-width: 110px;
-  max-width: 110px;
-  font-size: var(--fs-post-body-2);
-}
-
-.card-date {
-  color: var(--post-date);
-}
-
-.card-replies > span {
-  font-weight: 700;
+  width: 95%;
+  max-width: 1000px;
 }

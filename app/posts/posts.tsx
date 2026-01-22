@@ -2,8 +2,8 @@
 
 import styles from './posts.module.css'
 import PostCard from './postCard';
-import PageMessage from '../skeleton/pageMessage';
-import PostCardSkeleton from '../skeleton/postCardSkeleton';
+import PageMessage from '../components/pageMessage';
+import PostsLoadingSkeleton from '../skeleton/postsLoadingSkeleton';
 import useSWR from 'swr'
 import { FetchPosts } from '../api/fetch/dataFetcher';
 import { ForumPosts } from '../lib/interface';
@@ -13,9 +13,9 @@ export default function Posts() {
   const params = useParams();
   const searchParams = useSearchParams(); //for filter
 
-  // console.log(params.id)
+  //console.log('params',params.id)
+  //console.log('searchParams',searchParams.getAll("tags"))
 
-  const link = 'swakjam-2026' // for test
   const { data, isLoading, error } = useSWR<ForumPosts[]>(`/api/${params.id}`, FetchPosts, {
     onErrorRetry: (error, key, config, revalidate, { retryCount }) => {
       if (error.status === 404) return;
@@ -24,8 +24,10 @@ export default function Posts() {
     }
   });
 
-  if(isLoading) return <PostCardSkeleton />; 
+  if(isLoading) return <PostsLoadingSkeleton />; 
   if(error) return <PageMessage mainText='Error 404.' subText='Something went wrong.'/>;
+
+  console.log('data',data);
 
   return (
     <>
