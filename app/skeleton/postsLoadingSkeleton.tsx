@@ -1,6 +1,6 @@
-import styles from './postCardSkeleton.module.css'
+import styles from './postsLoadingSkeleton.module.css'
 
-export default function PostCardSkeleton() {
+export default function postsLoadingSkeleton() {
 
   return (
     <ul className={styles['skeleton-container']}>
