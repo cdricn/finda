@@ -1,6 +1,6 @@
 import styles from './page.module.css';
 import FilterJams from '../filter/filterJams';
-import PageMessage from '../skeleton/pageMessage';
+import PageMessage from '../components/pageMessage';
 
 export default function Main() {
 
