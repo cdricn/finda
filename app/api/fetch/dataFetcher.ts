@@ -6,7 +6,8 @@ import { TagType } from "@/app/lib/interface";
 export async function FetchJams() {
   try {
     const minMemberCount = 300;
-    const response = await fetch(`http://localhost:8000/jams/minMembers/${minMemberCount}`, { method: "GET"});
+    const link = `http://localhost:8000/gamejams/minMembers/${minMemberCount}`;
+    const response = await fetch(link, { method: "GET"});
     const data = await response.json();
     return data;
   }
@@ -24,9 +25,9 @@ export async function FetchPosts(url:string) {
   // console.log(url) // Check if url changed 
   const excessString = 5;
   const newUrl = url.slice(excessString);
+  const link = `http://localhost:8000/gamejam/posts/${newUrl}`;
   
   // can't check wrong spelling; maybe address it later
-  // address plural form of words
   const definedTags : TagType = {
     programmer: "developer", 
     developer: "developer",
@@ -48,7 +49,7 @@ export async function FetchPosts(url:string) {
   };
 
   try {
-    const response = await fetch(`http://localhost:8000/posts/${newUrl}/teams`, { method: "GET"});
+    const response = await fetch(link, { method: "GET"});
     const data = await response.json();
 
     //loop through data to get each entry
