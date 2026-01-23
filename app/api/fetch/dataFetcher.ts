@@ -23,21 +23,27 @@ export async function FetchPosts(url:string) {
   // idk how I can exclude /api/, I'm p sure I missed something. Get back to it later
   // console.log(url) // Check if url changed 
   const excessString = 5;
-  const newUrl = url.slice(excessString); 
-  const tags : TagType = {
-    programmer: "programmer", 
-    developer: "programmer",
-    coder: "programmer",
-    musician: "composer",
-    composer: "composer", 
+  const newUrl = url.slice(excessString);
+  
+  // can't check wrong spelling; maybe address it later
+  // address plural form of words
+  const definedTags : TagType = {
+    programmer: "developer", 
+    developer: "developer",
+    dev: "developer",
+    coder: "developer",
+    sound: "music",
+    audio: "music",
+    musician: "music",
+    music: "music",
+    composer: "music", 
+    sfx: "music",
     artist: "artist", 
-    artists: "artist",
     voice: "voice actor", 
     actor: "voice actor",
     va: "voice actor",
+    narrative: "writer",
     writer: "writer",
-    producer: "generic",
-    designer: "generic",
     playtester: "playtester"
   };
 
@@ -49,26 +55,32 @@ export async function FetchPosts(url:string) {
     for(const i in data) {
       //split array based on space to get words
       const titleArray = data[i].title.split(" ");
-      //add an empty array to data
-      data[i].tags = [];
+      //add an empty object to data to store tags as key/value
+      data[i].tags = {};
       //loop through new array
-      for (const str in titleArray) {
-        //if there's a slash, we split again; ex: "musician/composer"
-        //though since we're categorizing the tags, like musician and composer goes to category of composer
-        //maybe it's better to just get the first instance?
-        //but this could fail if the post is finding 2 different things 
-        if (titleArray[str].includes("/")) {
-          const separatedWords = titleArray[str].split("/");
-          if (tags.hasOwnProperty(separatedWords[0].toLowerCase())) {
-            data[i].tags.push(tags[separatedWords[0].toLowerCase()]);
-          }
-          if (tags.hasOwnProperty(separatedWords[1].toLowerCase())) {
-            data[i].tags.push(tags[separatedWords[1].toLowerCase()]);
-          }
+      for (const word in titleArray) {
+        let title = titleArray[word].toLowerCase();
+        //if word is plural, remove s
+        if (title[title.length-1] === 's') title=title.slice(0,title.length-1);
+        
+        if (definedTags.hasOwnProperty(title)) {
+          //remove special chars
+          title = title.replace(/[^a-zA-Z0-9]/g, '');
+          data[i].tags[definedTags[title]] = definedTags[title];
         }
-        //else just push it in if it matches the key
-        if (tags.hasOwnProperty(titleArray[str])) {
-          data[i].tags.push(tags[titleArray[str].toLowerCase()]);
+        //if the word has a slash, we split again; ex: "musician/composer"
+        else if (titleArray[word].includes("/")) {
+          //split first, then remove remaining special characters
+          let [firstWord, secondWord] = title.split("/");
+          firstWord = firstWord.replace(/[^a-zA-Z0-9]/g, '');
+          secondWord = secondWord.replace(/[^a-zA-Z0-9]/g, '');
+          
+          if (definedTags.hasOwnProperty(firstWord)) {
+            data[i].tags[definedTags[firstWord]] = definedTags[firstWord];
+          }
+          if (definedTags.hasOwnProperty(secondWord)) {
+            data[i].tags[definedTags[secondWord]] = definedTags[secondWord];
+          }
         }
       }
     }
