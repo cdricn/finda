@@ -1,7 +1,14 @@
 # Finda
-An aggregator website for community posts looking for teams in itch.io gamejams using React and Nextjs.
+An aggregator website for community posts looking for teams in itch.io game jams using React and Nextjs.
 
-# How it works
-Calls an API that scrapes itch.io game jams for posts that are about users finding teams or members and displays them in the website based on the filtered category. For more info about the API, visit: https://github.com/cdricn/itch-jamcommunity-api.
+## What it does
+- Only displays posts that are looking for team/members. 
+- Allows posts to be filtered based on role.
+- Only aggregates from game jams that have more than 300 participants.
 
+## How to run locally
+- Clone findateam repo ``https://github.com/cdricn/finda.git``
+- Clone the [scraper API](https://github.com/cdricn/itch-jamcommunity-api) ``https://github.com/cdricn/itch-jamcommunity-api.git``
+- You'll need node.js to run the scraper API. You can download from their [website](https://nodejs.org/en/download).
+- Run findateam with ``npm run dev`` and the server with ``npm run start``
 
