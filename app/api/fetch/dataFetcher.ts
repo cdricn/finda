@@ -1,6 +1,8 @@
 //Link to API: https://itch-jamcommunity-api.vercel.app/jams
 //Replace in prod
 
+import { TagType } from "@/app/lib/interface";
+
 export async function FetchJams() {
   try {
     const minMemberCount = 300;
@@ -22,20 +24,22 @@ export async function FetchPosts(url:string) {
   // console.log(url) // Check if url changed 
   const excessString = 5;
   const newUrl = url.slice(excessString); 
-  const tags = {
+  const tags : TagType = {
     programmer: "programmer", 
-    developer: "developer",
-    coder: "coder",
-    musician: "musician",
+    developer: "programmer",
+    coder: "programmer",
+    musician: "composer",
     composer: "composer", 
-    producer: "producer",
     artist: "artist", 
-    voice: "voice", 
-    actor: "actor",
-    va: "va",
+    artists: "artist",
+    voice: "voice actor", 
+    actor: "voice actor",
+    va: "voice actor",
     writer: "writer",
-    designer: "designer"
-  }
+    producer: "generic",
+    designer: "generic",
+    playtester: "playtester"
+  };
 
   try {
     const response = await fetch(`http://localhost:8000/posts/${newUrl}/teams`, { method: "GET"});
@@ -56,18 +60,19 @@ export async function FetchPosts(url:string) {
         if (titleArray[str].includes("/")) {
           const separatedWords = titleArray[str].split("/");
           if (tags.hasOwnProperty(separatedWords[0].toLowerCase())) {
-            data[i].tags.push(separatedWords[0]);
+            data[i].tags.push(tags[separatedWords[0].toLowerCase()]);
           }
           if (tags.hasOwnProperty(separatedWords[1].toLowerCase())) {
-            data[i].tags.push(separatedWords[1]);
+            data[i].tags.push(tags[separatedWords[1].toLowerCase()]);
           }
         }
         //else just push it in if it matches the key
         if (tags.hasOwnProperty(titleArray[str])) {
-          data[i].tags.push(titleArray[str]);
+          data[i].tags.push(tags[titleArray[str].toLowerCase()]);
         }
       }
     }
+    console.log('data fetched',data);
     return data;
   }
   catch (error) {
