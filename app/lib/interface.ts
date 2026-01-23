@@ -12,10 +12,15 @@ export interface ForumPosts {
   content: string,
   replies: number,
   datePosted: string,
-  author: string
-  tag: string;
+  author: string,
+  tags: Array<string>
 }
 
-export interface TagType {
+export interface TagState {
   [tag:string] : boolean;
+}
+
+
+export interface TagType {
+  [tag:string] : string;
 }

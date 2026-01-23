@@ -3,13 +3,13 @@
 import styles from './filterTags.module.css';
 import { FaFilter } from "react-icons/fa6";
 import Tag from './tag';
-import type { TagType } from '../lib/interface';
+import type { TagState } from '../lib/interface';
 import { useState, useEffect } from 'react';
 import { useParams, useRouter } from 'next/navigation';
 
 
 export default function FilterTags() {
-  const [activeTags, setActiveTags] = useState<TagType>({
+  const [activeTags, setActiveTags] = useState<TagState>({
     all: true,
     developer: false,
     artist: false,
