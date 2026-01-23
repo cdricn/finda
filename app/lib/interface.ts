@@ -13,7 +13,7 @@ export interface ForumPosts {
   replies: number,
   datePosted: string,
   author: string,
-  tags: Array<string>
+  tags: TagType
 }
 
 export interface TagState {

@@ -13,9 +13,10 @@ export default function FilterTags() {
     all: true,
     developer: false,
     artist: false,
-    composer: false
+    music: false
   });
   const router = useRouter();
+  const params = useParams();
 
   useEffect(()=>{
     const routerTagsArray = [];
@@ -25,8 +26,13 @@ export default function FilterTags() {
         routerTagsArray.push(item);
       } 
     }
+
     // Push tags into router
-    router.push(`?tags=`+ routerTagsArray.join('&tags='));
+    if(Object.keys(params).length > 0) {
+      router.push(`?tags=`+ routerTagsArray.join('&tags='));
+    } else {
+      router.push(``);
+    }
   }, [activeTags]);
 
   function handleClick(tag:string) {
@@ -61,7 +67,7 @@ export default function FilterTags() {
       <Tag tag={'all'} isActive={activeTags.all} handleClick={handleClick}/>
       <Tag tag={'developer'} isActive={activeTags.developer} handleClick={handleClick}/>
       <Tag tag={'artist'} isActive={activeTags.artist} handleClick={handleClick}/>
-      <Tag tag={'composer'} isActive={activeTags.composer} handleClick={handleClick}/>
+      <Tag tag={'music'} isActive={activeTags.music} handleClick={handleClick}/>
     </div>
   )
 }

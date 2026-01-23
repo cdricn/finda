@@ -13,8 +13,7 @@ export default function Posts() {
   const params = useParams();
   const searchParams = useSearchParams(); //for filter
 
-  //console.log('params',params.id)
-  //console.log('searchParams',searchParams.getAll("tags"))
+  console.log('searchParams',searchParams.getAll("tags"))
 
   const { data, isLoading, error } = useSWR<ForumPosts[]>(`/api/${params.id}`, FetchPosts, {
     onErrorRetry: (error, key, config, revalidate, { retryCount }) => {
@@ -27,14 +26,17 @@ export default function Posts() {
   if(isLoading) return <PostsLoadingSkeleton />; 
   if(error) return <PageMessage mainText='Error 404.' subText='Something went wrong.'/>;
 
-  console.log('data',data);
-
   return (
     <>
       {!isLoading && data && Object.keys(data).length > 0 ? 
         <ul className={styles['posts-container']}>
           {data.map((item, index)=>{
-            return <PostCard entry={item} key={item.title+index}/>
+            if(searchParams.get("tags")==='all') {
+              return <PostCard entry={item} key={item.title+index}/>
+            }
+            if(searchParams.getAll("tags").find((element)=>item.tags[element])) {
+              return <PostCard entry={item} key={item.title+index}/>
+            }
           })}
         </ul> :
         <PageMessage 
