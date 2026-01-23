@@ -16,7 +16,6 @@ export default function FilterTags() {
     composer: false
   });
   const router = useRouter();
-  const params = useParams();
 
   useEffect(()=>{
     const routerTagsArray = [];
@@ -26,13 +25,8 @@ export default function FilterTags() {
         routerTagsArray.push(item);
       } 
     }
-
     // Push tags into router
-    if(Object.keys(params).length > 0) {
-      router.push(`?tags=`+ routerTagsArray.join('&tags='));
-    } else {
-      router.push(``);
-    }
+    router.push(`?tags=`+ routerTagsArray.join('&tags='));
   }, [activeTags]);
 
   function handleClick(tag:string) {
