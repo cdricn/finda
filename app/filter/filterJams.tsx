@@ -5,17 +5,9 @@ import useSWR from 'swr'
 import { FetchJams } from '../api/fetch/dataFetcher';
 import { GameJam } from '../lib/interface';
 import { useParams, useRouter } from 'next/navigation';
-import { useState, useEffect } from 'react';
 import DisabledSelect from '../skeleton/disabledSelect';
 
 export default function FilterJams() {
-  const [selectedJam, setSelectedJam] = useState<GameJam>({
-    title: '',
-    url: '',
-    members: 0,
-    deadline: '',
-    host: ''
-  });
   const router = useRouter();
   const params = useParams();
   const excessUrl = 20;
@@ -27,13 +19,6 @@ export default function FilterJams() {
       setTimeout(() => revalidate({ retryCount }), 5000);
     }
   });
-
-  useEffect(()=>{
-    if(!data) return;
-    const newUrl = selectedJam.url.slice(excessUrl); // isolate directory from the itch.io link to make ours look pretty
-    router.replace("/"+newUrl);
-
-  }, [selectedJam]);
   
   if(!data) return <DisabledSelect />;
   if(isLoading) return <DisabledSelect />;
@@ -44,7 +29,8 @@ export default function FilterJams() {
       const newSelectedJam = data.find((item)=>item.title === e.target.value);
       // e.target values are from data, so technically, item should never return undefined
       if (newSelectedJam) {
-        setSelectedJam(newSelectedJam);
+        const newUrl = newSelectedJam.url.slice(excessUrl); // isolate directory from the itch.io link to make ours look pretty
+        router.replace("/"+newUrl);
       };
     }
   }
