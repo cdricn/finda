@@ -7,7 +7,6 @@ export async function FetchJams() {
   try {
     const minMemberCount = 300;
     const link = `${apiLink}/gamejams/minMembers/${minMemberCount}`;
-    console.log(link)
     const response = await fetch(link, { method: "GET"});
     const data = await response.json();
     return data;
@@ -86,7 +85,6 @@ export async function FetchPosts(url:string) {
         }
       }
     }
-    console.log('data fetched',data);
     return data;
   }
   catch (error) {
