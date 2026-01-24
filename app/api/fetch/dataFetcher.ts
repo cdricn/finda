@@ -1,14 +1,13 @@
 //Link to API: https://itch-jamcommunity-api.vercel.app/jams
 //Replace in prod
-
 import { TagType } from "@/app/lib/interface";
-const apiLink = process.env.API_URL;
+const apiLink = process.env.API_ENDPOINT;
 
 export async function FetchJams() {
   try {
     const minMemberCount = 300;
-    const link = `${apiLink}/gamejams/minMembers/${minMemberCount}`;
-    console.log(apiLink)
+    const link = `${apiLink}gamejams/minMembers/${minMemberCount}`;
+    console.log(link)
     const response = await fetch(link, { method: "GET"});
     const data = await response.json();
     return data;
@@ -27,7 +26,7 @@ export async function FetchPosts(url:string) {
   // console.log(url) // Check if url changed 
   const excessString = 5;
   const newUrl = url.slice(excessString);
-  const link = `${apiLink}/gamejam/posts/${newUrl}`;
+  const link = `${apiLink}gamejam/posts/${newUrl}`;
   
   // can't check wrong spelling; maybe address it later
   const definedTags : TagType = {
