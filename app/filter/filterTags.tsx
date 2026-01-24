@@ -13,7 +13,9 @@ export default function FilterTags() {
     all: true,
     developer: false,
     artist: false,
-    music: false
+    music: false,
+    writer: false,
+    playtester: false
   });
   const router = useRouter();
   const params = useParams();
@@ -68,6 +70,8 @@ export default function FilterTags() {
       <Tag tag={'developer'} isActive={activeTags.developer} handleClick={handleClick}/>
       <Tag tag={'artist'} isActive={activeTags.artist} handleClick={handleClick}/>
       <Tag tag={'music'} isActive={activeTags.music} handleClick={handleClick}/>
+      <Tag tag={'writer'} isActive={activeTags.writer} handleClick={handleClick}/>
+      <Tag tag={'playtester'} isActive={activeTags.playtester} handleClick={handleClick}/>
     </div>
   )
 }
