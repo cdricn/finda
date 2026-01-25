@@ -31,7 +31,6 @@ export default function FilterTags() {
       router.push('?tags=all');
     }
     setActiveTags(temp);
-    
   }, [])
   
   function handleClick(tag:string) {
@@ -61,7 +60,6 @@ export default function FilterTags() {
         }
       }
     }
-  
     // Finally, set the actual state with the result
     setActiveTags(tempTags);
   }
