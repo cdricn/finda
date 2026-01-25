@@ -13,8 +13,6 @@ export default function Posts() {
   const params = useParams();
   const searchParams = useSearchParams(); //for filter
 
-  console.log('searchParams',searchParams.getAll("tags"))
-
   const { data, isLoading, error } = useSWR<ForumPosts[]>(`/api/${params.id}`, FetchPosts, {
     onErrorRetry: (error, key, config, revalidate, { retryCount }) => {
       if (error.status === 404) return;
