@@ -6,6 +6,14 @@ export interface GameJam {
   host: string;
 }
 
+export interface GameJamInfo {
+  title: string,
+  host: string,
+  members: number,
+  startDate: string,
+  endDate: string
+}
+
 export interface ForumPosts {
   title: string,
   url: string,
@@ -19,7 +27,6 @@ export interface ForumPosts {
 export interface TagState {
   [tag:string] : boolean;
 }
-
 
 export interface TagType {
   [tag:string] : string;
