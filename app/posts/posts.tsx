@@ -11,14 +11,15 @@ import { useParams, useSearchParams } from 'next/navigation';
 
 export default function Posts() {
   const params = useParams();
-  const searchParams = useSearchParams(); //for filter
+  const searchParams = useSearchParams();
 
-  const { data, isLoading, error } = useSWR<ForumPosts[]>(`/api/${params.id}`, FetchPosts, {
-    onErrorRetry: (error, key, config, revalidate, { retryCount }) => {
-      if (error.status === 404) return;
-      if (retryCount >= 10) return;
-      setTimeout(() => revalidate({ retryCount }), 5000);
-    }
+  const { data, isLoading, error } = useSWR<ForumPosts[]>(
+    `/api/posts/${params.id}`, ()=>FetchPosts(params.id), {
+      onErrorRetry: (error, key, config, revalidate, { retryCount }) => {
+        if (error.status === 404) return;
+        if (retryCount >= 10) return;
+        setTimeout(() => revalidate({ retryCount }), 5000);
+      }
   });
 
   if(isLoading) return <PostsLoadingSkeleton />; 
