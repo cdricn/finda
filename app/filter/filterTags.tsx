@@ -4,62 +4,65 @@ import styles from './filterTags.module.css';
 import { FaFilter } from "react-icons/fa6";
 import Tag from './tag';
 import type { TagState } from '../lib/interface';
-import { useState, useEffect } from 'react';
-import { useParams, useRouter } from 'next/navigation';
+import { useEffect, useState } from 'react';
+import { useRouter, useSearchParams } from 'next/navigation';
 
 
 export default function FilterTags() {
+  const router = useRouter();
+  const searchParams = useSearchParams().getAll('tags');
   const [activeTags, setActiveTags] = useState<TagState>({
-    all: true,
+    all: false,
     developer: false,
     artist: false,
     music: false,
     writer: false,
     playtester: false
   });
-  const router = useRouter();
-  const params = useParams();
 
   useEffect(()=>{
-    const routerTagsArray = [];
-    // Push active tags into the router tags array
-    for(const item in activeTags) {
-      if(activeTags[item]) {
-        routerTagsArray.push(item);
-      } 
-    }
-
-    // Push tags into router
-    if(Object.keys(params).length > 0) {
-      router.push(`?tags=`+ routerTagsArray.join('&tags='));
+    let temp = {...activeTags};
+    if (searchParams.length > 0 && !searchParams.includes('all')) {
+      for (const p in searchParams) {
+        temp = {...temp, [searchParams[p]]:true};
+      }
     } else {
-      router.push(``);
+      temp = {...temp, all:true};
+      router.push('?tags=all');
     }
-  }, [activeTags]);
-
-  function handleClick(tag:string) {
-    const defaultTags = {
-      all: true,
-      developer: false,
-      artist: false,
-      composer: false
-    };
-    let tempTags = activeTags;
+    setActiveTags(temp);
     
-    //Check first which one is clicked
+  }, [])
+  
+  function handleClick(tag:string) {
+    let tempTags = {...activeTags};
+    let tempParams = [];
+    // Check if 'all' tag is clicked 
     if(tag==='all') {
-      tempTags = defaultTags;
+      Object.keys(tempTags).forEach((item)=>{
+        tempTags[item] = item==='all' ? true : false;
+      })
+      router.push('?tags=all');
     }
     else {
       tempTags = {...tempTags, all:false, [tag]:!activeTags[tag]};
+      
+      // If no tag is active when a tag is clicked, set to all
+      if (Object.values(tempTags).every(bool=>bool===false)) {
+        tempTags = {...tempTags, all:true};
+        router.push('?tags=all');
+      } 
+      else {
+        for(const item in tempTags) {
+          if(tempTags[item] && item!=='all') {
+            tempParams.push(item);
+            router.push(`?tags=`+ tempParams.join('&tags='))
+          } 
+        }
+      }
     }
-
-    //Then check if all are empty
-    if (Object.values(tempTags).every(bool=>bool===false)) {
-      tempTags = defaultTags;
-    }
-
-    //Finally, set the actual state with the result 
+  
+    // Finally, set the actual state with the result
     setActiveTags(tempTags);
   }
   
