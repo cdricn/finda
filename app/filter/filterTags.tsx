@@ -35,7 +35,7 @@ export default function FilterTags() {
   
   function handleClick(tag:string) {
     let tempTags = {...activeTags};
-    let tempParams = [];
+    const tempParams = [];
     // Check if 'all' tag is clicked 
     if(tag==='all') {
       Object.keys(tempTags).forEach((item)=>{
