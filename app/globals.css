@@ -41,6 +41,9 @@
   --color-spinner: var(--color-grey-500);
   --color-select-disabled: var(--color-grey-500);
 
+  --post-button: var(--color-itch);
+  --post-button-hover: var(--color-dark-itch);
+  --post-button-text: var(--color-white);
   --post-header: var(--color-itch);
   --post-hover: var(--color-dark-itch);
   --post-author: var(--color-grey-500);

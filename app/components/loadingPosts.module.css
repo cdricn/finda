@@ -1,5 +1,6 @@
 .loading-container {
   margin: auto;
+  padding: 5rem;
   position: relative;
   display: flex;
   flex-direction: column;
