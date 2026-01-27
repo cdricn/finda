@@ -5,7 +5,7 @@ import useSWR from 'swr'
 import { FetchJams } from '../api/fetch/dataFetcher';
 import { GameJam } from '../lib/interface';
 import { useParams, useRouter } from 'next/navigation';
-import DisabledSelect from '../skeleton/disabledSelect';
+import SelectMessage from '../skeleton/selectMessage';
 
 export default function FilterJams() {
   const router = useRouter();
@@ -21,9 +21,8 @@ export default function FilterJams() {
     }
   });
   
-  if(!data) return <DisabledSelect />;
-  if(isLoading) return <DisabledSelect />;
-  if(error) return <DisabledSelect />;
+  if(isLoading) return <SelectMessage text={'Fetching game jams...'}/>;
+  if(error) return <SelectMessage text={"Couldn't fetch data..."}/>;
 
   function handleChange(e:React.ChangeEvent<HTMLSelectElement>) {
     if (data) {
@@ -65,7 +64,7 @@ export default function FilterJams() {
             )
           })}
         </select> :
-        <DisabledSelect />
+        <SelectMessage text={"Couldn't fetch data..."}/>
       }
     </div>
   )
