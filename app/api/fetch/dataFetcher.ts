@@ -2,7 +2,7 @@
 
 import { ParamValue } from "next/dist/server/request/params";
 
-//Replace in prod
+// Change this to a class?
 const apiLink = process.env.API_ENDPOINT;
 
 export async function FetchJams() {
