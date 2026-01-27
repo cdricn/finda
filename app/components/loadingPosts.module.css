@@ -6,9 +6,11 @@
   flex-direction: column;
   gap: 8px;
   align-items: center;
+  justify-content: center;
 }
 
 .loading-message {
+  text-align: center;
   color: var(--color-noresult);
   font-size: var(--fs-header-2);
   font-weight: 500;

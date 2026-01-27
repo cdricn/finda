@@ -5,6 +5,7 @@
   justify-content: space-between;
   align-items: center;
   width: 100%;
+  z-index: 10;
 }
 
 .header-title {
@@ -13,6 +14,7 @@
 }
 
 .github-icon {
+  display: inline-block;
   font-size: 30px;
   width: 30px;
   height: 30px;
