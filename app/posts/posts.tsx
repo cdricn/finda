@@ -8,6 +8,7 @@ import { FetchPosts } from '../api/fetch/dataFetcher';
 import { ForumPosts } from '../lib/interface';
 import { useParams, useSearchParams } from 'next/navigation';
 import LoadingPosts from '../components/loadingPosts';
+import PostFooter from './postFooter';
 
 export default function Posts() {
   const params = useParams();
@@ -29,21 +30,21 @@ export default function Posts() {
   
   return (
     <>
-      {!isLoading && data && Object.keys(data).length > 0 ? 
-        <ul className={styles['posts-container']}>
-          {data.map((item, index)=>{
-            if(searchParams.get("tags")==='all') {
-              return <PostCard entry={item} key={item.title+index}/>
-            }
-            if(searchParams.getAll("tags").find((element)=>item.tags[element])) {
-              return <PostCard entry={item} key={item.title+index}/>
-            }
-          })}
-        </ul> :
-        <PageMessage 
-          mainText='No results found.'
-          subText='Try looking in another gamejam.'
-        />
+      {!isLoading && data && Object.keys(data).length > 0 ?
+        <>
+          <ul className={styles['posts-container']}>
+            {data.map((item, index)=>{
+              if(searchParams.get("tags")==='all') {
+                return <PostCard entry={item} key={item.title+index}/>
+              }
+              if(searchParams.getAll("tags").find((element)=>item.tags[element])) {
+                return <PostCard entry={item} key={item.title+index}/>
+              }
+            })}
+          </ul>
+          <PostFooter text="Can't find what you're looking for?" link={params.id}/>
+        </> :
+        <PostFooter text="No results found." link={params.id}/>
       }
     </>
   )
