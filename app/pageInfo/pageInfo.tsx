@@ -9,6 +9,8 @@ import PageInfoError from './pageInfoError';
 
 export default function PageInfo() {
   const params = useParams();
+  const link = params.id ? 
+  'https://itch.io/jam/'+params.id.toString() : '/';
 
   const { data, isLoading, error } = useSWR<GameJamInfo>(
     `/api/details/${params.id}`, FetchInfo, {
@@ -38,7 +40,7 @@ export default function PageInfo() {
     <>
       {!isLoading && data && Object.keys(data).length > 0 ?
         <div className={styles['page-info-container']}>
-          <h1 className={styles['page-title']}>{data.title}</h1>
+          <a href={link} target='_blank' className={styles['page-title']}>{data.title}</a>
           <span>{data.host}</span>
           <div className={styles['page-info']}>
             <span>{dateFormatter(data.startDate)}</span> - 
