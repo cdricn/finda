@@ -25,7 +25,7 @@ export default function Posts() {
   });
   
   if(isLoading) return <LoadingPosts />; 
-  if(error) return <PageMessage mainText='Error 404.' subText='Something went wrong.'/>;
+  if(error) return <PageMessage mainText='Error 404.' subText="This game jam doesn't have a community forums yet."/>;
   
   return (
     <>
