@@ -10,7 +10,6 @@
   font-size: var(--fs-header);
   font-weight: 600;
   color: var(--color-light-itch);
-  line-height: 90%;
 }
 .page-title > a {
   text-decoration: none;

@@ -25,6 +25,16 @@ export default function PageInfo() {
   if(isLoading) return <PageInfoSkeleton />;
   if(error) return <PageInfoError />;
 
+  function dateFormatter(date:string) {
+    if (date) {
+      let newDate = new Date(date).toString();
+      let month = newDate.slice(3, 7)+'.';
+      let day = newDate.slice(7, 10)+',';
+      let year = newDate.slice(10, 15);
+      return month+day+year;
+    } else return '';
+  }
+
   return (
     <>
       {!isLoading && data && Object.keys(data).length > 0 ?
@@ -32,6 +42,8 @@ export default function PageInfo() {
           <h1 className={styles['page-title']}>{data.title}</h1>
           <span>{data.host}</span>
           <div className={styles['page-info']}>
+            <span>{dateFormatter(data.startDate)}</span> - 
+            <span>{dateFormatter(data.endDate)}</span>
           </div>
         </div> :
         <PageInfoError />
