@@ -38,6 +38,7 @@
   --fontcolor-tag-active: var(--color-white);
   --color-noresult: var(--color-grey-200);
   --color-header: var(--color-grey-300);
+  --color-spinner: var(--color-grey-500);
 
   --post-header: var(--color-itch);
   --post-hover: var(--color-dark-itch);
