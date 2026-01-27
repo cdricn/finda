@@ -5,7 +5,6 @@ import { GameJamInfo } from '@/app/lib/interface';
 import { useParams } from 'next/navigation';
 import useSWR from 'swr';
 import { FetchInfo } from '../api/fetch/dataFetcher';
-import PageInfoSkeleton from '../skeleton/pageInfoSkeleton';
 import PageInfoError from './pageInfoError';
 
 export default function PageInfo() {
@@ -22,7 +21,7 @@ export default function PageInfo() {
       }
   });
 
-  if(isLoading) return <PageInfoSkeleton />;
+  if(isLoading) return <PageInfoError />;
   if(error) return <PageInfoError />;
 
   function dateFormatter(date:string) {
