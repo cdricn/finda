@@ -1,0 +1,20 @@
+.page-info-container {
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  justify-content: end;
+  min-height: 200px;
+}
+
+.page-title {
+  font-size: var(--fs-header);
+  font-weight: 600;
+  color: var(--color-light-itch);
+}
+.page-title > a {
+  text-decoration: none;
+}
+
+.page-info {
+  padding-top: 5px;
+}
