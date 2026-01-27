@@ -28,10 +28,10 @@ export default function PageInfo() {
 
   function dateFormatter(date:string) {
     if (date) {
-      let newDate = new Date(date).toString();
-      let month = newDate.slice(3, 7)+'.';
-      let day = newDate.slice(7, 10)+',';
-      let year = newDate.slice(10, 15);
+      const newDate = new Date(date).toString();
+      const month = newDate.slice(3, 7)+'.';
+      const day = newDate.slice(7, 10)+',';
+      const year = newDate.slice(10, 15);
       return month+day+year;
     } else return '';
   }

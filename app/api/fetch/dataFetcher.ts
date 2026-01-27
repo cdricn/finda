@@ -4,13 +4,17 @@ import { ParamValue } from "next/dist/server/request/params";
 
 const apiLink = process.env.API_ENDPOINT;
 
-// Change this to a class?
+class FetchError extends Error {
+  status;
+  constructor(message:string, status:number) {
+    super(message);
+    this.status = status;
+  }
+}
+
 async function ResponseHandler(response: Response) {
   if (response.status === 404) {
-    // make a type for this or something
-    const error : any = new Error('An error occured while fetching the data.');
-    error.status = response.status;
-    throw error;
+    throw new FetchError('An error occured while fetching the data.', response.status);
   }
   if (response.ok) {
     const data = await response.json();
