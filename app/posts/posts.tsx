@@ -3,28 +3,30 @@
 import styles from './posts.module.css'
 import PostCard from './postCard';
 import PageMessage from '../components/pageMessage';
-import PostsLoadingSkeleton from '../skeleton/postsLoadingSkeleton';
 import useSWR from 'swr'
 import { FetchPosts } from '../api/fetch/dataFetcher';
 import { ForumPosts } from '../lib/interface';
 import { useParams, useSearchParams } from 'next/navigation';
+import LoadingPosts from '../components/loadingPosts';
 
 export default function Posts() {
   const params = useParams();
   const searchParams = useSearchParams();
 
   const { data, isLoading, error } = useSWR<ForumPosts[]>(
-    `/api/posts/${params.id}`, ()=>FetchPosts(params.id), {
+    `/api/posts/${params.id}`, FetchPosts, {
+      revalidateOnFocus: false,
+      errorRetryCount: 5,
       onErrorRetry: (error, key, config, revalidate, { retryCount }) => {
         if (error.status === 404) return;
-        if (retryCount >= 10) return;
+        if (retryCount >= 5) return;
         setTimeout(() => revalidate({ retryCount }), 5000);
       }
   });
-
-  if(isLoading) return <PostsLoadingSkeleton />; 
+  
+  if(isLoading) return <LoadingPosts />; 
   if(error) return <PageMessage mainText='Error 404.' subText='Something went wrong.'/>;
-
+  
   return (
     <>
       {!isLoading && data && Object.keys(data).length > 0 ? 

@@ -13,9 +13,10 @@ export default function FilterJams() {
   const excessUrl = 20;
   
   const { data, isLoading, error } = useSWR<GameJam[]>(`/api/jams`, FetchJams, {
+    errorRetryCount: 5,
     onErrorRetry: (error, key, config, revalidate, { retryCount }) => {
       if (error.status === 404) return;
-      if (retryCount >= 10) return;
+      if (retryCount >= 5) return;
       setTimeout(() => revalidate({ retryCount }), 5000);
     }
   });
