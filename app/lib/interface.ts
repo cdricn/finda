@@ -1,4 +1,9 @@
 export interface GameJam {
+  upcoming: GameJamEntries[];
+  ongoing: GameJamEntries[];
+}
+
+export interface GameJamEntries {
   title: string;
   url: string;
   members: number;

@@ -3,7 +3,7 @@
 import styles from './filterJams.module.css';
 import useSWR from 'swr'
 import { FetchJams } from '../api/fetch/dataFetcher';
-import { GameJam } from '../lib/interface';
+import { GameJam, GameJamEntries } from '../lib/interface';
 import { useParams, useRouter } from 'next/navigation';
 import SelectMessage from '../skeleton/selectMessage';
 
@@ -12,7 +12,7 @@ export default function FilterJams() {
   const params = useParams();
   const excessUrl = 20;
   
-  const { data, isLoading, error } = useSWR<GameJam[]>(`/api/jams`, FetchJams, {
+  const { data, isLoading, error } = useSWR<GameJam>(`/api/jams`, FetchJams, {
     errorRetryCount: 5,
     onErrorRetry: (error, key, config, revalidate, { retryCount }) => {
       if (error.status === 404) return;
@@ -26,7 +26,9 @@ export default function FilterJams() {
 
   function handleChange(e:React.ChangeEvent<HTMLSelectElement>) {
     if (data) {
-      const newSelectedJam = data.find((item)=>item.title === e.target.value);
+      const newSelectedJam = data.upcoming.concat(data.ongoing).find(
+        (item)=>item.title === e.target.value
+      );
       // e.target values are from data, so technically, item should never return undefined
       if (newSelectedJam) {
         const newUrl = newSelectedJam.url.slice(excessUrl); // isolate directory from the itch.io link to make ours look pretty
@@ -39,7 +41,9 @@ export default function FilterJams() {
     if (data) {
       // if link is outdated, it's possible that params value isn't in item anymore
       // so we still check if entry is undefined 
-      const entry = data.find((item)=>item.url.slice(excessUrl) === params.id);
+      const entry = data.upcoming.concat(data.ongoing).find(
+        (item)=>item.url.slice(excessUrl) === params.id
+      );
       return entry ? entry.title : 'default';
     }
     return 'default';
@@ -47,22 +51,36 @@ export default function FilterJams() {
 
   return (
     <div className={styles['select-container']}>
-      {data && data.length > 0 ? 
+      {data && data.upcoming.length > 0 && data.ongoing.length > 0? 
         <select id="gamejams" className={styles['gamejams-select']} onChange={handleChange} 
           defaultValue={setSelectDefault()}>
-
           <option value="default" disabled>--Choose a gamejam--</option>
-          {data.map((entry, index)=>{
-            return (
-              <option 
-                key={index} 
-                id={entry.title}
-                value={entry.title}
-                >
-                  {entry.title} ({entry.members})
-              </option>
-            )
-          })}
+          <optgroup label="Ongoing">
+            {data.ongoing.map((entry, index)=>{
+              return (
+                <option 
+                  key={index} 
+                  id={entry.title}
+                  value={entry.title}
+                  >
+                    {entry.title} ({entry.members})
+                </option>
+              )
+            })}
+          </optgroup>
+          <optgroup label="Upcoming">
+            {data.upcoming.map((entry, index)=>{
+              return (
+                <option 
+                  key={index} 
+                  id={entry.title}
+                  value={entry.title}
+                  >
+                    {entry.title} ({entry.members})
+                </option>
+              )
+            })}
+          </optgroup>
         </select> :
         <SelectMessage text={"Couldn't fetch data..."}/>
       }

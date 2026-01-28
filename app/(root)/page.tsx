@@ -13,7 +13,7 @@ export default function Main() {
       <section className={styles['content-section']}>
         <PageMessage 
           mainText='Nothing here.' 
-          subText='Select a game jam to discover groups or members.'
+          subText='Select a game jam above to discover groups or members.'
         />
       </section>
     </main>
