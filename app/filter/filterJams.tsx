@@ -3,7 +3,7 @@
 import styles from './filterJams.module.css';
 import useSWR from 'swr'
 import { FetchJams } from '../api/fetch/dataFetcher';
-import { GameJam, GameJamEntries } from '../lib/interface';
+import { GameJam } from '../lib/interface';
 import { useParams, useRouter } from 'next/navigation';
 import SelectMessage from '../skeleton/selectMessage';
 
