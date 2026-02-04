@@ -91,6 +91,14 @@ a {
   color: inherit;
 }
 
+p {
+  font-weight: 300;
+}
+
+h2 {
+  font-weight: 500;
+}
+
 body {
   min-height: 100vh;
   overflow: auto;

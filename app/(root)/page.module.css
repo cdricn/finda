@@ -1,36 +1,19 @@
 .main-container {
-  position: relative;  
-}
-
-.title-section {
   margin: auto;
-  padding-top: 30px;
-  display: flex;
-  flex-direction: column;
+  position: relative;
   width: 95%;
   max-width: 1000px;
 }
 
 .title-section {
+  margin: auto;
+  padding-top: 12.5rem;
   position: relative;
-  padding-bottom: 10px;
-  display: flex;
-  flex-direction: column;
-  justify-content: end;
-  gap: 5px;
-  min-height: 200px;
-}
-
-.title-section::after {
-  content: '';
-  position: absolute;
-  width: 100%;
-  height: 2px;
-  bottom: 0;
-  background-color: var(--bg-main-divider);
+  text-align: center;
 }
 
 .title-section > h1 {
+  padding-bottom: 1.25rem;
   font-size: var(--fs-header);
   font-weight: 600;
   color: var(--color-light-itch);
@@ -38,5 +21,12 @@
 }
 
 .content-section {
-  padding-top: 3rem;
+  margin: auto;
+  padding-top: 1.5rem;
+  position: relative;
+  max-width: 400px;
+}
+
+.note {
+  font-size: var(--fs-filter-body);
 }

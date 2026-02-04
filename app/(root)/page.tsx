@@ -1,6 +1,5 @@
 import styles from './page.module.css';
 import FilterJams from '../filter/filterJams';
-import PageMessage from '../components/pageMessage';
 
 export default function Main() {
 
@@ -11,10 +10,16 @@ export default function Main() {
         <FilterJams />
       </section>
       <section className={styles['content-section']}>
-        <PageMessage 
-          mainText='Nothing here.' 
-          subText='Select a game jam above to discover groups or members.'
-        />
+        <p><br/>
+          findateam aims to make the task of finding teams or members,
+          much easier by filtering posts from popular itch.io game jams and serving them 
+          to you in one place. <br/><br/>
+          No more sifting through theme questions, unrelated topics, and spam. 
+          Find the role you want and filter! <br/><br/>
+          <span className={styles['note']}>
+            *Only ranked game jams with more than 300 participants are included.
+          </span>
+        </p>
       </section>
     </main>
   )
