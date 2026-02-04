@@ -11,6 +11,8 @@
 .header-title {
   font-size: var(--fs-post-header);
   color: var(--color-header);
+  text-decoration: none;
+  user-select: none;
 }
 
 .github-icon {
