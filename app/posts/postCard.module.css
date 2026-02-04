@@ -23,7 +23,6 @@
   font-size: var(--fs-post-body);
   color: var(--post-header);
   text-decoration: none;
-  font-weight: 600;
 }
 .card-author {  
   color: var(--post-author);
