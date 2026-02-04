@@ -8,8 +8,8 @@ const inter = localFont({
 });
 
 export const metadata: Metadata = {
-  title: "Finda",
-  description: "Filter community posts for itch gamejams focused on finding teams.",
+  title: "Findateam | Find members easier from itch game jams!",
+  description: "Find teams or members much easier by filtering posts from popular itch.io game jams.",
 };
 
 export default function RootLayout({
