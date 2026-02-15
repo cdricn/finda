@@ -1,5 +1,5 @@
 # Finda
-An aggregator website for community posts looking for teams in itch.io game jams using React and Nextjs.
+An aggregator website for posts in community forums looking for teams from itch.io game jams using React and Nextjs.
 
 ## What it does
 - Collects game jams that have more than 300 participants.
