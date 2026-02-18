@@ -39,7 +39,7 @@ export default function Posts() {
                 return <PostCard entry={item} key={item.title+index}/>
               }
               if(searchParams.getAll("tags").find((element)=>item.tags[element])) {
-                return <PostCard entry={item} key={item.title+item.index}/>
+                return <PostCard entry={item} key={item.title+index}/>
               }
             })}
           </ul>
