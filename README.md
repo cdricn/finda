@@ -2,9 +2,9 @@
 A website that collects posts from itch.io game jam community forums that are looking for teams using React and Nextjs.
 
 ## Features
-- Collects posts from game jams that have more than 300 participants.
-- Filters the posts based on title to collect only those that are looking for team/members. 
-- Filter posts based on your desired role.
+- Collects posts from ongoing and upcoming game jams that have more than 300 participants.
+- Filters posts based on title to collect only those that are looking for team/members. 
+- Filter posts based on your desired role. 
 
 ## How to run locally
 - Clone findateam repo ``https://github.com/cdricn/finda.git``
