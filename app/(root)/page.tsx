@@ -12,13 +12,13 @@ export default function Main() {
       <section className={styles['content-section']}>
         <p>
           <br/>
-          findateam aims to make the task of finding teams or members,
-          much easier by filtering posts from popular itch.io game jams and serving them 
-          to you in one place. <br/><br/>
+          findateam collects all posts looking for teams and members from popular 
+          itch.io game jam community forums to help you with your team formation.
+          <br/><br/>
           No more sifting through theme questions, unrelated topics, and spam. 
-          Find the role you want and filter! <br/><br/>
+          Filter the posts based on the role you want and connect!<br/><br/>
           <span className={styles['note']}>
-            *Only ranked game jams with more than 300 participants are included.
+            *Game jams with less than 300 participants are not included.
           </span>
         </p>
       </section>

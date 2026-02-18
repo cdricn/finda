@@ -22,9 +22,10 @@
 
 .content-section {
   margin: auto;
+  padding-left: 10px;
   padding-top: 1.5rem;
   position: relative;
-  max-width: 400px;
+  max-width: 600px;
 }
 
 .note {

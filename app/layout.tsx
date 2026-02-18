@@ -9,7 +9,7 @@ const inter = localFont({
 
 export const metadata: Metadata = {
   title: "Findateam | Find members easier from itch.io game jams!",
-  description: "Find teams or members much easier by filtering posts from popular itch.io game jams.",
+  description: "Find teams and members easier by filtering posts from popular itch.io game jams.",
 };
 
 export default function RootLayout({
