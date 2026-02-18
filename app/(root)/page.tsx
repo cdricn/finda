@@ -10,7 +10,8 @@ export default function Main() {
         <FilterJams />
       </section>
       <section className={styles['content-section']}>
-        <p><br/>
+        <p>
+          <br/>
           findateam aims to make the task of finding teams or members,
           much easier by filtering posts from popular itch.io game jams and serving them 
           to you in one place. <br/><br/>

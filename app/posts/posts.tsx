@@ -27,7 +27,8 @@ export default function Posts() {
   
   if(isLoading) return <LoadingPosts />; 
   if(error) return <PageMessage mainText='Error 404.' subText="Page could not be loaded."/>;
-  
+
+
   return (
     <>
       {!isLoading && data && Object.keys(data).length > 0 ?
@@ -38,7 +39,7 @@ export default function Posts() {
                 return <PostCard entry={item} key={item.title+index}/>
               }
               if(searchParams.getAll("tags").find((element)=>item.tags[element])) {
-                return <PostCard entry={item} key={item.title+index}/>
+                return <PostCard entry={item} key={item.title+item.index}/>
               }
             })}
           </ul>
