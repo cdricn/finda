@@ -9,6 +9,7 @@
 .page-title {
   font-size: var(--fs-header);
   font-weight: 600;
+  line-height: 120%;
   color: var(--color-light-itch);
   text-decoration: none;
 }
@@ -18,4 +19,10 @@
 
 .page-info {
   padding-top: 5px;
+}
+
+@media (width < 500px) {
+  .page-title {
+    font-size: var(--fs-header-2);
+  }
 }
