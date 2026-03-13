@@ -5,6 +5,7 @@
   --foreground: #171717;
 
   --color-black: #000000;
+  --color-black-100: #252525;
   --color-black-opaque-80: rgba(0, 0, 0, .8);
   --color-black-opaque-50: rgba(0, 0, 0, .5);
   --color-white: #ffffff;
@@ -54,6 +55,7 @@
   --bg-shadow: var(--color-grey-200);
   --bg-post-skeleton: var(--color-white-100);
   --bg-select-disabled: var(--color-grey-100);
+  --bg-footer: var(--color-grey-100);
 
   --select-border-color: var(--color-white-200);
 
