@@ -2,7 +2,7 @@
 
 import styles from './posts.module.css';
 import { useParams, useSearchParams } from 'next/navigation';
-import { fetchWithSWR } from '../hooks/fetchWithSWR';
+import { useFetchWithSWR } from '../hooks/useFetchWithSWR';
 import { ForumPosts } from '../lib/interface';
 import PostCard from './postCard';
 import PageMessage from '../components/pageMessage';
@@ -12,7 +12,7 @@ import PostFooter from './postFooter';
 export default function Posts() {
   const params = useParams();
   const searchParams = useSearchParams();
-  const {data, isLoading, error} = fetchWithSWR<ForumPosts[]>(String(params.id));
+  const {data, isLoading, error} = useFetchWithSWR<ForumPosts[]>(String(params.id));
 
   if(isLoading) return <LoadingPosts />; 
   if(error) return <PageMessage mainText='Error 404.' subText="Page could not be loaded."/>;

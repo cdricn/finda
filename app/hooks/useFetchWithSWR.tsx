@@ -4,7 +4,7 @@ import useSWR from 'swr';
 import { FetchPosts } from '../api/fetch/dataFetcher';
 import { FetchResult } from '../lib/interface';
 
-export function fetchWithSWR<T>(params:string): FetchResult<T> {
+export function useFetchWithSWR<T>(params:string): FetchResult<T> {
 
   const { data, isLoading, error } = useSWR(
     `/api/posts/${params}`, FetchPosts, {
