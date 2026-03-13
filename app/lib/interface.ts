@@ -29,6 +29,12 @@ export interface ForumPosts {
   tags: TagType
 }
 
+export interface FetchResult<T> {
+  data: T | undefined;
+  isLoading: any;
+  error: any;
+}
+
 export interface TagState {
   [tag:string] : boolean;
 }
