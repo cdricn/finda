@@ -31,8 +31,8 @@ export interface ForumPosts {
 
 export interface FetchResult<T> {
   data: T | undefined;
-  isLoading: any;
-  error: any;
+  isLoading: boolean;
+  error: Error;
 }
 
 export interface TagState {
