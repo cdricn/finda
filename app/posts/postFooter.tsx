@@ -3,8 +3,7 @@ import { ParamValue } from 'next/dist/server/request/params';
 
 export default function PostFooter({text, link}:{text:string, link:ParamValue}) {
 
-  const communityLink = link ? 
-    'https://itch.io/jam/'+ link.toString() + '/community': '';
+  const communityLink = link ? 'https://itch.io/jam/'+ link.toString() + '/community': '';
 
   return (
     <div className={styles['footer-container']}>
