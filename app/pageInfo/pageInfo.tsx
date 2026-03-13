@@ -1,10 +1,9 @@
 'use client';
 
 import styles from './pageInfo.module.css';
-import { GameJamInfo } from '@/app/lib/interface';
 import { useParams } from 'next/navigation';
-import useSWR from 'swr';
-import { FetchInfo } from '../api/fetch/dataFetcher';
+import { fetchWithSWR } from '../hooks/fetchWithSWR';
+import { GameJamInfo } from '@/app/lib/interface';
 import PageInfoError from './pageInfoError';
 
 export default function PageInfo() {
@@ -12,16 +11,7 @@ export default function PageInfo() {
   const link = params.id ? 
   'https://itch.io/jam/'+params.id.toString() : '/';
 
-  const { data, isLoading, error } = useSWR<GameJamInfo>(
-    `/api/details/${params.id}`, FetchInfo, {
-      revalidateOnFocus: false,
-      errorRetryCount: 5,
-      onErrorRetry: (error, key, config, revalidate, { retryCount }) => {
-        if (error.status === 404) return;
-        if (retryCount >= 5) return;
-        setTimeout(() => revalidate({ retryCount }), 5000);
-      }
-  });
+  const { data, isLoading, error } = fetchWithSWR<GameJamInfo>(String(params.id));
 
   if(isLoading) return <PageInfoError />;
   if(error) return <PageInfoError />;

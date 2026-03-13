@@ -1,10 +1,9 @@
 'use client';
 
 import styles from './filterJams.module.css';
-import useSWR from 'swr'
-import { FetchJams } from '../api/fetch/dataFetcher';
-import { GameJam } from '../lib/interface';
 import { useParams, useRouter } from 'next/navigation';
+import { fetchWithSWR } from '../hooks/fetchWithSWR';
+import { GameJam } from '../lib/interface';
 import SelectMessage from '../skeleton/selectMessage';
 
 export default function FilterJams() {
@@ -12,14 +11,7 @@ export default function FilterJams() {
   const params = useParams();
   const excessUrl = 20;
   
-  const { data, isLoading, error } = useSWR<GameJam>(`/api/jams`, FetchJams, {
-    errorRetryCount: 5,
-    onErrorRetry: (error, key, config, revalidate, { retryCount }) => {
-      if (error.status === 404) return;
-      if (retryCount >= 5) return;
-      setTimeout(() => revalidate({ retryCount }), 5000);
-    }
-  });
+  const { data, isLoading, error } = fetchWithSWR<GameJam>(String(params.id));
   
   if(isLoading) return <SelectMessage text={'Fetching game jams...'}/>;
   if(error) return <SelectMessage text={"Couldn't fetch data..."}/>;

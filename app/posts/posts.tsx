@@ -1,33 +1,21 @@
 'use client';
 
-import styles from './posts.module.css'
+import styles from './posts.module.css';
+import { useParams, useSearchParams } from 'next/navigation';
+import { fetchWithSWR } from '../hooks/fetchWithSWR';
+import { ForumPosts } from '../lib/interface';
 import PostCard from './postCard';
 import PageMessage from '../components/pageMessage';
-import useSWR from 'swr'
-import { FetchPosts } from '../api/fetch/dataFetcher';
-import { ForumPosts } from '../lib/interface';
-import { useParams, useSearchParams } from 'next/navigation';
 import LoadingPosts from '../components/loadingPosts';
 import PostFooter from './postFooter';
 
 export default function Posts() {
   const params = useParams();
   const searchParams = useSearchParams();
+  const {data, isLoading, error} = fetchWithSWR<ForumPosts[]>(String(params.id));
 
-  const { data, isLoading, error } = useSWR<ForumPosts[]>(
-    `/api/posts/${params.id}`, FetchPosts, {
-      revalidateOnFocus: false,
-      errorRetryCount: 5,
-      onErrorRetry: (error, key, config, revalidate, { retryCount }) => {
-        if (error.status === 404) return;
-        if (retryCount >= 5) return;
-        setTimeout(() => revalidate({ retryCount }), 5000);
-      }
-  });
-  
   if(isLoading) return <LoadingPosts />; 
   if(error) return <PageMessage mainText='Error 404.' subText="Page could not be loaded."/>;
-
 
   return (
     <>
