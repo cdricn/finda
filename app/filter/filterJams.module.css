@@ -1,12 +1,12 @@
-
 .select-container {
   position: relative;
+  width: fit-content;
 }
 .gamejams-select {
   border: 1px solid var(--select-border-color);
   padding: 5px;
-  width: 40%;
   min-width: 280px;
+  width: 100%;
   max-width: 400px;
   font-size: var(--fs-filter-body);
 }
