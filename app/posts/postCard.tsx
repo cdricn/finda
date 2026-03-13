@@ -4,11 +4,7 @@ import { ForumPosts } from '../lib/interface';
 export default function PostCard({entry}:{entry:ForumPosts}) {
 
   const date = entry.datePosted.slice(3, -16) + entry.datePosted.slice(0, 3);
-  const replies = entry.replies > 0 ? 
-    <span className={styles['card-replies']}>
-      <span>{entry.replies}</span> replies
-    </span> : 
-    <span>No replies</span>;
+  const replies = entry.replies > 0 ? `${entry.replies} replies`: 'No replies';
 
   return (
     <li className={styles['card-container']}>
@@ -21,7 +17,7 @@ export default function PostCard({entry}:{entry:ForumPosts}) {
       </div>
       <div className={styles['card-details']}>
         <span className={styles['card-date']}>{date}</span><br/>
-        {replies}
+        <span className={styles['card-replies']}>{replies}</span>
       </div>
     </li>
   )
