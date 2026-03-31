@@ -7,7 +7,7 @@ import { ParamValue } from "next/dist/server/request/params";
 export function useFetchWithSWR<T>(
   params: string | number,
   link: string,
-  fetcherFunction: (url: ParamValue)=>Promise<any>
+  fetcherFunction: (url: ParamValue)=>Promise<T>
 ) : FetchResult<T> {
 
   const { data, isLoading, error } = useSWR(
