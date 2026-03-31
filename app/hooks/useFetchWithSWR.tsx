@@ -1,13 +1,17 @@
 'use client';
 
 import useSWR from 'swr';
-import { FetchPosts } from '../api/fetch/dataFetcher';
 import { FetchResult } from '../lib/interface';
+import { ParamValue } from "next/dist/server/request/params";
 
-export function useFetchWithSWR<T>(params:string): FetchResult<T> {
+export function useFetchWithSWR<T>(
+  params: string | number,
+  link: string,
+  fetcherFunction: (url: ParamValue)=>Promise<any>
+) : FetchResult<T> {
 
   const { data, isLoading, error } = useSWR(
-    `/api/posts/${params}`, FetchPosts, {
+    `${link}/${params}`, fetcherFunction, {
       revalidateOnFocus: false,
       errorRetryCount: 5,
       onErrorRetry: (error, key, config, revalidate, { retryCount }) => {

@@ -3,6 +3,7 @@
 import styles from './pageInfo.module.css';
 import { useParams } from 'next/navigation';
 import { useFetchWithSWR } from '../hooks/useFetchWithSWR';
+import { FetchInfo } from '../api/fetch/dataFetcher';
 import { GameJamInfo } from '@/app/lib/interface';
 import PageInfoError from './pageInfoError';
 
@@ -11,7 +12,9 @@ export default function PageInfo() {
   const link = params.id ? 
   'https://itch.io/jam/'+params.id.toString() : '/';
 
-  const { data, isLoading, error } = useFetchWithSWR<GameJamInfo>(String(params.id));
+  const { data, isLoading, error } = useFetchWithSWR<GameJamInfo>(
+    String(params.id), 'gamejam/details', FetchInfo
+  );
 
   if(isLoading) return <PageInfoError />;
   if(error) return <PageInfoError />;

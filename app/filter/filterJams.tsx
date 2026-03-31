@@ -2,6 +2,7 @@
 
 import styles from './filterJams.module.css';
 import { useParams, useRouter } from 'next/navigation';
+import { FetchJams } from '../api/fetch/dataFetcher';
 import { useFetchWithSWR } from '../hooks/useFetchWithSWR';
 import { GameJam } from '../lib/interface';
 import SelectMessage from '../skeleton/selectMessage';
@@ -11,10 +12,13 @@ export default function FilterJams() {
   const params = useParams();
   const excessUrl = 20;
   
-  const { data, isLoading, error } = useFetchWithSWR<GameJam>(String(params.id));
+  const { data, isLoading, error } = useFetchWithSWR<GameJam>(
+    300, 'gamejams/minMembers', FetchJams
+  );
   
   if(isLoading) return <SelectMessage text={'Fetching game jams...'}/>;
   if(error) return <SelectMessage text={"Couldn't fetch data..."}/>;
+
 
   function handleChange(e:React.ChangeEvent<HTMLSelectElement>) {
     if (data) {
