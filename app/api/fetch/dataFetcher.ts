@@ -22,9 +22,10 @@ async function ResponseHandler(response: Response) {
   }
 }
 
-export async function FetchJams() {
-  const minMemberCount = 300;
-  const link = `${apiLink}/gamejams/minMembers/${minMemberCount}`;
+export async function FetchJams(url:ParamValue) {
+  if(!url) return;
+
+  const link = `${apiLink}/${url}`;
   const response = await fetch(link, { method: "GET"});
   
   return ResponseHandler(response);
@@ -34,8 +35,7 @@ export async function FetchJams() {
 export async function FetchPosts(url:ParamValue) {
   if(!url) return;
   
-  const excessString = 5;
-  const link = `${apiLink}/gamejam/${url.slice(excessString)}`;
+  const link = `${apiLink}/${url}`;
   const response = await fetch(link, { method: "GET"});
 
   return ResponseHandler(response);
@@ -44,8 +44,7 @@ export async function FetchPosts(url:ParamValue) {
 export async function FetchInfo(url:ParamValue) {
   if(!url) return;
 
-  const excessString = 5;
-  const link = `${apiLink}/gamejam/${url.slice(excessString)}`;
+  const link = `${apiLink}/${url}`;
   const response = await fetch(link, { method: "GET"});
 
   return ResponseHandler(response);
