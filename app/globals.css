@@ -1,11 +1,12 @@
 :root {
   font-family: "Inter", system-ui, Avenir, Helvetica, Arial, sans-serif;
   scroll-behavior: smooth;
-  --background: #ffffff;
-  --foreground: #171717;
+  --background: var(--color-white);
+  --foreground: var(--color-black);
 
   --color-black: #000000;
-  --color-black-100: #252525;
+  --color-black-100: #131313;
+  --color-black-200: #272727;
   --color-black-opaque-80: rgba(0, 0, 0, .8);
   --color-black-opaque-50: rgba(0, 0, 0, .5);
   --color-white: #ffffff;
@@ -18,7 +19,7 @@
   --color-grey-300: #adadad;
   --color-grey-500: #818181;
   --color-pastel-itch: #fc778d;
-  --color-light-itch: #ff4b69; /**/
+  --color-light-itch: #ff4b69;
   --color-itch: #FF2449;
   --color-dark-itch: #dd2140;
 
@@ -28,10 +29,11 @@
   --color-main: var(--color-itch);
   --color-main-light: var(--color-light-itch);
   --color-main-dark: var(--color-dark-itch);
-  --color-secondary: var(--color-grey-300); /*3*/
-  --color-secondary-dark: var(--color-grey-500); /*5*/
+  --color-secondary: var(--color-grey-300);
+  --color-secondary-dark: var(--color-grey-500); 
   --color-mute: var(--color-grey-200);
-  --color-divider: var(--color-grey-200); /*1*/
+  --color-divider: var(--color-grey-200); 
+  --color-tag: var(--color-black);
   --color-tag-background: var(--color-white-200);
   --color-select: var(--color-white-100);
 
@@ -49,24 +51,39 @@
 }
 
 [data-theme="dark"] {
-  --color-body: var(--color-black);
+  --color-body: var(--color-black); 
   --color-body-active: var(--color-white);
   --color-body-light: var(--color-white);
   --color-main: var(--color-itch);
   --color-main-light: var(--color-light-itch);
   --color-main-dark: var(--color-dark-itch);
-  --color-secondary: var(--color-grey-300); /*3*/
-  --color-secondary-dark: var(--color-grey-500); /*5*/
+  --color-secondary: var(--color-grey-300); 
+  --color-secondary-dark: var(--color-grey-500); 
   --color-mute: var(--color-grey-200);
-  --color-divider: var(--color-grey-200); /*1*/
+  --color-divider: var(--color-grey-200);
   --color-tag-background: var(--color-white-200);
   --color-select: var(--color-white-100);
 }
 
 @media (prefers-color-scheme: dark) {
   :root {
-    --background: #15151b;
-    --foreground: rgb(254, 255, 248);
+    --background: var(--color-black-100);
+    --foreground: var(--color-white);
+    background-color: var(--color-black-100);
+
+    --color-body: var(--color-white); 
+    --color-body-active: var(--color-white);
+    --color-body-light: var(--color-white);
+    --color-main: var(--color-light-itch);
+    --color-main-light: var(--color-light-itch);
+    --color-main-dark: var(--color-dark-itch);
+    --color-secondary: var(--color-grey-300); 
+    --color-secondary-dark: var(--color-grey-500); 
+    --color-mute: var(--color-grey-200);
+    --color-divider: var(--color-grey-200);
+    --color-tag: var(--color-black);
+    --color-tag-background: var(--color-white-200);
+    --color-select: var(--color-black-200);
   }
 }
 

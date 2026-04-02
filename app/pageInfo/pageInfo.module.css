@@ -4,6 +4,7 @@
   flex-direction: column;
   justify-content: end;
   min-height: 200px;
+  color: var(--color-body);
 }
 
 .page-title {

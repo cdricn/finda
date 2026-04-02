@@ -10,4 +10,5 @@
   max-width: 400px;
   font-size: var(--fs-filter-body);
   background-color: var(--color-select);
+  color: var(--color-body);
 }
