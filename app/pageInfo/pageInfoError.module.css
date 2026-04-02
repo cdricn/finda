@@ -9,7 +9,7 @@
 .page-title {
   font-size: var(--fs-header);
   font-weight: 600;
-  color: var(--color-light-itch);
+  color: var(--color-main-light);
 }
 .page-title > a {
   text-decoration: none;

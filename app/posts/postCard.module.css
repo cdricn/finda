@@ -1,19 +1,29 @@
 .card-container {
-  padding-top: 5px;
-  padding-bottom: 10px;
+  padding-block: 5px;
   position: relative;
-  display: flex;
-  align-items: center;
-  gap: 15px;
 }
 
 .card-container::after {
   content: '';
+  margin: auto;
   position: absolute;
-  background-color: var(--bg-divider);
+  background-color: var(--color-mute);
+  left: 0;
+  right: 0;
   bottom: 0;
   height: 1px;
-  width: 100%;
+  width: 99%;
+}
+
+.card-wrapper {
+  padding: 5px;
+  display: flex;
+  align-items: center;
+  gap: 15px;
+  text-decoration: none;
+}
+.card-wrapper:hover {
+  background-color: var(--color-select);
 }
 
 .card-content {
@@ -21,11 +31,10 @@
 }
 .card-title {
   font-size: var(--fs-post-body);
-  color: var(--post-header);
-  text-decoration: none;
+  color: var(--color-main);
 }
 .card-author {  
-  color: var(--post-author);
+  color: var(--color-secondary-dark);
 }
 .card-author, .card-content > p {
   font-size: var(--fs-post-body-2);
@@ -35,14 +44,14 @@
   font-size: var(--fs-post-body-2);
 }
 .card-date {
-  color: var(--post-date);
+  color: var(--color-secondary-dark);
 }
 .card-replies > span {
   font-weight: 700;
 }
 
 @media (width < 400px) {
-  .card-container {
+  .card-wrapper {
     flex-direction: column;  
   }
   .card-details {

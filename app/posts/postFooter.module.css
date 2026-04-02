@@ -9,20 +9,20 @@
 
 .footer-text {
   text-align: center;
-  color: var(--color-noresult);
+  color: var(--color-mute);
 }
 
 .button-container {
   border-radius: 10px;
   padding: 7px 10px 7px 10px;
   width: fit-content;
-  background-color: var(--post-button);
+  background-color: var(--color-main);
   text-decoration: none;
 }
 .button-container:hover {
-  background-color: var(--post-button-hover);
+  background-color: var(--color-main-dark);
 }
 
 .button-text {
-  color: var(--post-button-text);
+  color: var(--color-body-light);
 }

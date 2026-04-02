@@ -10,8 +10,8 @@ type TagType = {
 export default function Tag({ tag, isActive, handleClick }: TagType ) {
 
   const style = {
-    backgroundColor: 'var(--tag-bgcolor-active)',
-    color: 'var(--tag-color-active)'
+    backgroundColor: 'var(--color-main)',
+    color: 'var(--color-body-active)'
   };
   
   return (

@@ -11,7 +11,7 @@
 
 .header-title {
   font-size: var(--fs-post-header);
-  color: var(--color-header);
+  color: var(--color-mute);
   text-decoration: none;
   user-select: none;
 }

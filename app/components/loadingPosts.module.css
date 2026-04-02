@@ -11,7 +11,7 @@
 
 .loading-message {
   text-align: center;
-  color: var(--color-noresult);
+  color: var(--color-mute);
   font-size: var(--fs-header-2);
   font-weight: 500;
 }
@@ -23,8 +23,8 @@
 .spinner {
   width: 25px;
   height: 25px;
-  border: 5px solid var(--color-noresult);
-  border-top: 5px solid var(--color-spinner);
+  border: 5px solid var(--color-mute);
+  border-top: 5px solid var(--color-secondary-dark);
   border-radius: 50%;
   animation: spin 1s linear infinite; 
 }

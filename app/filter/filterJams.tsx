@@ -59,7 +59,7 @@ export default function FilterJams() {
                   id={entry.title}
                   value={entry.title}
                   >
-                    {entry.title} ({entry.members})
+                    {entry.title} ({entry.members} Members)
                 </option>
               )
             })}
@@ -72,7 +72,7 @@ export default function FilterJams() {
                   id={entry.title}
                   value={entry.title}
                   >
-                    {entry.title} ({entry.members})
+                    {entry.title} ({entry.members} Members)
                 </option>
               )
             })}

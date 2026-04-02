@@ -8,17 +8,17 @@ export default function PostCard({entry}:{entry:ForumPosts}) {
 
   return (
     <li className={styles['card-container']}>
-      <div className={styles['card-content']}>
-        <a href={entry.url} target='_' className={styles['card-title']}>
-          <h2>{entry.title}</h2>
-        </a>
-        <span className={styles['card-author']}>by {entry.author}</span>
-        <p>{entry.content}</p>
-      </div>
-      <div className={styles['card-details']}>
-        <span className={styles['card-date']}>{date}</span><br/>
-        <span className={styles['card-replies']}>{replies}</span>
-      </div>
+      <a href={entry.url} target='_' className={styles['card-wrapper']}>
+        <div className={styles['card-content']}>
+          <h2 className={styles['card-title']}>{entry.title}</h2>
+          <span className={styles['card-author']}>by {entry.author}</span>
+          <p>{entry.content}</p>
+        </div>
+        <div className={styles['card-details']}>
+          <span className={styles['card-date']}>{date}</span><br/>
+          <span className={styles['card-replies']}>{replies}</span>
+        </div>
+      </a>
     </li>
   )
 }
