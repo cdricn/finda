@@ -1,23 +1,10 @@
-'use client';
-
 import styles from './pageInfo.module.css';
-import { useParams } from 'next/navigation';
-import { useFetchWithSWR } from '../hooks/useFetchWithSWR';
-import { FetchInfo } from '../api/fetch/dataFetcher';
 import { GameJamInfo } from '@/app/lib/interface';
 import PageInfoError from './pageInfoError';
 
-export default function PageInfo() {
-  const params = useParams();
-  const link = params.id ? 
-  'https://itch.io/jam/'+params.id.toString() : '/';
-
-  const { data, isLoading, error } = useFetchWithSWR<GameJamInfo>(
-    String(params.id), 'gamejam/details', FetchInfo
-  );
-
-  if(isLoading) return <PageInfoError />;
-  if(error) return <PageInfoError />;
+export default function PageInfo({data, params}:{data: GameJamInfo, params:string}) {
+  
+  const link = params ? 'https://itch.io/jam/'+params.toString() : '/';
 
   function dateFormatter(date:string) {
     if (date) {
@@ -31,7 +18,7 @@ export default function PageInfo() {
 
   return (
     <>
-      {!isLoading && data && Object.keys(data).length > 0 ?
+      {data && Object.keys(data).length > 0 ?
         <div className={styles['page-info-container']}>
           <a href={link} target='_blank' className={styles['page-title']}>{data.title}</a>
           <span>{data.host}</span>
