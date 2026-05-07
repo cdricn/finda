@@ -1,16 +1,12 @@
 import styles from './page.module.css';
 import FilterJams from '../filter/filterJams';
 import FilterTags from '../filter/filterTags';
-import Posts from './pagePosts/posts';
 import PageInfo from './pageInfo/pageInfo';
-import { fetchData } from '../api/fetch/fetchData';
 import { Suspense } from 'react';
+import PagePosts from './pagePosts/pagePosts';
 
 export default async function PostsPage({params}:{params: Promise<{ id: string }>}) {
   const paramID = await params;
-
-  // put within
-  let pagePostList = await fetchData.getResource(paramID.id, 'gamejam/posts');
 
   return (
     <>
@@ -25,8 +21,8 @@ export default async function PostsPage({params}:{params: Promise<{ id: string }
           <FilterTags />
         </section>
         <section className={styles['content-section']}>
-          <Suspense fallback={<></>}>
-            <Posts data={pagePostList}/>
+          <Suspense fallback={<>Loading</>}>
+            <PagePosts params={paramID.id}/>
           </Suspense>
         </section>
       </main>
