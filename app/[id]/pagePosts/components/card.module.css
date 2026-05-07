@@ -1,0 +1,64 @@
+.card-container {
+  padding-block: 5px;
+  position: relative;
+}
+
+.card-container::after {
+  content: '';
+  margin: auto;
+  position: absolute;
+  background-color: var(--color-mute);
+  left: 0;
+  right: 0;
+  bottom: 0;
+  height: 1px;
+  width: 99%;
+}
+
+.card-wrapper {
+  padding: 5px;
+  display: flex;
+  align-items: center;
+  gap: 15px;
+  text-decoration: none;
+  color: var(--color-body);
+}
+.card-wrapper:hover {
+  background-color: var(--color-select);
+}
+
+.card-content {
+  flex-grow: 1;
+}
+.card-title {
+  font-size: var(--fs-post-body);
+  color: var(--color-main);
+}
+.card-author {  
+  color: var(--color-secondary-dark);
+}
+.card-author, .card-content > p {
+  font-size: var(--fs-post-body-2);
+}
+.card-details {
+  min-width: 110px;
+  font-size: var(--fs-post-body-2);
+}
+.card-date {
+  color: var(--color-secondary-dark);
+}
+.card-replies > span {
+  font-weight: 700;
+}
+
+@media (width < 400px) {
+  .card-wrapper {
+    flex-direction: column;  
+  }
+  .card-details {
+    display: flex;
+    flex-direction: row-reverse;
+    justify-content: space-around;
+    width: 100%;
+  }
+}
