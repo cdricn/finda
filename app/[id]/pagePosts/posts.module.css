@@ -1,0 +1,6 @@
+.posts-container {
+  position: relative;
+  list-style-type: none;
+  width: 95%;
+  max-width: 1000px;
+}
