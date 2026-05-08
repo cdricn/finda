@@ -9,6 +9,6 @@ export const fetchData = {
   getResource: (id:string, resource:string)=>
     FetchApi(`${resource}/${id}`),
 
-  getJams: (id:string, resource:string, param:number)=>
-    FetchApi(`${resource}/${param}/${id}`)
+  getJams: (resource:string, param:number)=>
+    FetchApi(`${resource}/${param}`)
 }
