@@ -2,8 +2,8 @@
 
 import styles from './posts.module.css';
 import { useParams, useSearchParams } from 'next/navigation';
-import { ForumPosts } from '../../lib/interface';
-import Message from './components/message';
+import { ForumPosts } from '../../../lib/interface';
+import Message from './message';
 
 export default function Posts({data}:{data:ForumPosts[]}) {
   const params = useParams();
