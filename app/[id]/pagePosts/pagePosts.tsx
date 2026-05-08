@@ -1,5 +1,5 @@
 import { fetchData } from '@/app/api/fetch/fetchData';
-import Posts from './posts';
+import Posts from './components/posts';
 
 export default async function PagePosts({params}:{params:string}) {
   

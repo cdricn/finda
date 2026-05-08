@@ -1,5 +1,5 @@
 import styles from './page.module.css';
-import FilterJams from '../filter/filterJams';
+import JamSelection from '../components/jamSelection/jamSelection';
 import FilterTags from '../filter/filterTags';
 import PageInfo from './pageInfo/pageInfo';
 import { Suspense } from 'react';
@@ -16,7 +16,7 @@ export default async function PostsPage({params}:{params: Promise<{ id: string }
             <PageInfo params={paramID.id}/>
           </Suspense>
           <Suspense fallback={<></>}>
-            <FilterJams />
+            <JamSelection />
           </Suspense>
           <FilterTags />
         </section>
