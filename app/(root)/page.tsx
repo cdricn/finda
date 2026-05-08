@@ -1,7 +1,8 @@
 import styles from './page.module.css';
-import FilterJams from '../filter/filterJams';
+import JamSelection from '../components/jamSelection/jamSelection';
+import { Suspense } from 'react';
 
-export default function Main() {
+export default async function Main() {
 
   return (
     <main className={styles['main-container']}>
@@ -17,7 +18,9 @@ export default function Main() {
         </p>
         <div className={styles['search-container']}>
           <div>
-            <FilterJams />
+            <Suspense fallback={<></>}>
+              <JamSelection />
+            </Suspense>
           </div>
           <span className={styles['note']}>
             *Game jams with less than 300 participants are not included.
