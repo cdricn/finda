@@ -1,59 +1,35 @@
 .main-container {
-  margin: auto;
+  padding-top: 10rem;
+  padding-right: 25%;
+  padding-left: 25%;
   position: relative;
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  width: 95%;
-  height: 100svh;
-  max-width: 1000px;
 }
 
-.section {
+.page-header {
+  padding-bottom: var(--spacing-32);
+  position: relative;
+}
+.page-header > h1 {
+  color: var(--color-main);
+  font-size: var(--fs-header);
+  font-weight: 600;
+}
+.page-header > p {
+  max-width: 500px;
+}
+
+.gamejams-category {
+  display: flex;
+  justify-content: space-between;
+}
+
+.category-container {
+  flex: 1;
+  position: relative;
+}
+
+.category-list {
   position: relative;
   display: flex;
   flex-direction: column;
-  align-items: center;
-  gap: 16px;
-}
-
-.title-section {
-  position: relative;
-  text-align: center;
-  font-size: var(--fs-title);
-  font-weight: 600;
-  line-height: 100%;
-  color: var(--color-main-light);
-}
-
-.content-section {
-  position: relative;
-  text-align: center;
-  max-width: 600px;
-  color: var(--color-body);
-}
-
-.search-container {
-  width: fit-content;
-}
-.search-container > div {
-  margin: auto;
-  width: fit-content;
-}
-
-.note {
-  display: block;
-  font-size: 12px;
-  text-align: center;
-  color: var(--color-body);
-}
-
-@media (width < 700px) {
-  .title-section {
-    font-size: var(--fs-header);
-  }
-  .content-section {
-    width: 80%;
-    min-width: 280px;
-  }
 }

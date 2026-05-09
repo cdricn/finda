@@ -6,26 +6,47 @@ export default async function Main() {
 
   return (
     <main className={styles['main-container']}>
-      <section className={styles['section']}>
-        <h1 className={styles['title-section']}>
-          Find a team!
-        </h1>
-        <p className={styles['content-section']}>
-          Findateam collects community forum posts that are looking for teams and members from
-          popular itch.io game jams. <br/><br/>
-          Findateam also allows you to filter posts based on the roles you want or need,
-          making the search for members easier.
+      <div className={styles['page-header']}>
+        <h1>Find a team!</h1>
+        <p>
+          Aggregating all forum posts looking for teams or members from popular itch.io game jams.
         </p>
-        <div className={styles['search-container']}>
-          <div>
+      </div>
+      <section className={styles['gamejams-category']}>
+        
+        <div className={styles['category-container']}>
+          <h2>Ongoing Game Jams</h2>
+          <ul className={styles['category-list']}>
             <Suspense fallback={<></>}>
-              <JamSelection />
+              <li className={styles['card-container']}>
+                <div className={styles['top']}>
+                  <div className={styles['card-image-container']}>
+                    <img src=''/>
+                  </div>
+                  <div className={styles['card-main-details']}>
+                    <h3 className={styles['title']}>Game Jam Title</h3>
+                    <span className={styles['host']}>Hosted by:</span>
+                    <p className={styles['description']}>Short description:</p>
+                  </div>
+                </div>
+                <div className={styles['bottom']}>
+                  <span className={styles['duration']}></span>
+                  <span className={styles['stat']}></span>
+                </div>
+              </li>
             </Suspense>
-          </div>
-          <span className={styles['note']}>
-            *Game jams with less than 300 participants are not included.
-          </span>
+          </ul>
         </div>
+
+        <div className={styles['category-container']}>
+          <h2>Upcoming Game Jams</h2>
+          <ul className={styles['category-list']}>
+            <Suspense fallback={<></>}>
+              <li></li>
+            </Suspense>
+          </ul>
+        </div>
+
       </section>
     </main>
   )
