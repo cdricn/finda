@@ -4,18 +4,27 @@
 
   --color-lightgray: #fafafa;
   --color-gray: #F4F4F4;
+  --color-gray2: #ececec;
   --color-darkgray: #D9D9D9;
+  --color-darkgray2: #919191;
   --color-white: #ffffff;
   --color-black: #0f0f0f;
   --color-itch-light: #ff6f87;
-  --color-itch: #FF2449;
+  --color-itch: #ff4a68;
+  --color-itch-dark: #fd3455;
 
   --background: var(--color-gray);
   --foreground: var(--color-black);
   --color-main: var(--color-itch);
+  --color-active: var(--color-itch);
+  --color-active-hover: var(--color-itch-dark);
+  --color-inactive: var(--color-darkgray);
+  --color-text-active: var(--color-white);
+  --color-text-inactive: var(--color-black);
 
   --fs-header: 3.5rem; /*56px*/
   --fs-body: 1.125rem; /*18px*/
+  --fs-subtext: 1rem; /*16px*/
 
   --spacing-8: .5rem;
   --spacing-16: 1rem;
