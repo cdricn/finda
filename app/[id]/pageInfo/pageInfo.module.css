@@ -1,9 +1,9 @@
 .page-info-container {
+  padding-bottom: 16px;
   position: relative;
   display: flex;
   flex-direction: column;
   justify-content: end;
-  min-height: 200px;
   color: var(--color-body);
 }
 
@@ -11,7 +11,7 @@
   font-size: var(--fs-header);
   font-weight: 600;
   line-height: 120%;
-  color: var(--color-main-light);
+  color: var(--color-itch);
   text-decoration: none;
 }
 .page-title > a {
@@ -19,7 +19,7 @@
 }
 
 .page-info {
-  padding-top: 5px;
+  padding-top: 4px;
 }
 
 @media (width < 500px) {
