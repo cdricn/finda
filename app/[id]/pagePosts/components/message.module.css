@@ -9,18 +9,18 @@
 
 .footer-text {
   text-align: center;
-  color: var(--color-mute);
 }
 
 .button-container {
   border-radius: 10px;
   padding: 7px 10px 7px 10px;
   width: fit-content;
-  background-color: var(--color-main);
+  background-color: var(--color-active);
   text-decoration: none;
+  color: var(--color-white);
 }
 .button-container:hover {
-  background-color: var(--color-main-dark);
+  background-color: var(--color-active-hover);
 }
 
 .button-text {
