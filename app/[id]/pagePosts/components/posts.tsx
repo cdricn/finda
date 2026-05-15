@@ -28,7 +28,7 @@ export default function Posts({data}:{data:ForumPosts[]}) {
                       <div className={styles['card-content']}>
                         <h2 className={styles['card-title']}>{item.title}</h2>
                         <span className={styles['card-author']}>by {item.author}</span>
-                        <p>{item.content}</p>
+                        <p className={styles['card-description']}>{item.content}</p>
                       </div>
                       <div className={styles['card-details']}>
                         <span className={styles['card-date']}>{date}</span><br/>

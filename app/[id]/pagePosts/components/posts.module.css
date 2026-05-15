@@ -6,15 +6,18 @@
 }
 
 .card-container {
-  padding-block: 5px;
   position: relative;
+  padding-block: 8px;
+  font-size: var(--fs-body);
 }
-
+.card-container:hover {
+  background-color: var(--color-gray);
+}
 .card-container::after {
   content: '';
   margin: auto;
   position: absolute;
-  background-color: var(--color-mute);
+  background-color: var(--color-darkgray);
   left: 0;
   right: 0;
   bottom: 0;
@@ -23,39 +26,35 @@
 }
 
 .card-wrapper {
-  padding: 5px;
+  padding: 4px;
   display: flex;
   align-items: center;
   gap: 15px;
   text-decoration: none;
   color: var(--color-body);
 }
-.card-wrapper:hover {
-  background-color: var(--color-select);
-}
 
 .card-content {
   flex-grow: 1;
 }
 .card-title {
-  font-size: var(--fs-post-body);
   color: var(--color-main);
 }
 .card-author {  
-  color: var(--color-secondary-dark);
+  padding-top: 4px;
+  font-size: var(--fs-subtext);
 }
-.card-author, .card-content > p {
-  font-size: var(--fs-post-body-2);
+.card-description {
+  padding-top: 8px;  
 }
 .card-details {
   min-width: 110px;
-  font-size: var(--fs-post-body-2);
 }
 .card-date {
-  color: var(--color-secondary-dark);
+  font-size: var(--fs-subtext);
 }
-.card-replies > span {
-  font-weight: 700;
+.card-replies {
+  font-size: var(--fs-subtext);
 }
 
 @media (width < 400px) {
