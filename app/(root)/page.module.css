@@ -1,35 +1,22 @@
 .main-container {
-  padding-top: 10rem;
-  padding-right: 25%;
-  padding-left: 25%;
+  padding-top: 5rem;
   position: relative;
 }
 
-.page-header {
-  padding-bottom: var(--spacing-32);
-  position: relative;
+.wrapper {
+  border: 1px solid var(--color-darkgray);
+  padding-left: 5%;
+  padding-right: 5%;
+  padding: 64px;
+  background-color: var(--color-white);
 }
+
 .page-header > h1 {
   color: var(--color-main);
   font-size: var(--fs-header);
   font-weight: 600;
 }
-.page-header > p {
-  max-width: 500px;
-}
 
-.gamejams-category {
-  display: flex;
-  justify-content: space-between;
-}
-
-.category-container {
-  flex: 1;
-  position: relative;
-}
-
-.category-list {
-  position: relative;
-  display: flex;
-  flex-direction: column;
+.table-container {
+  padding-top: 42px;
 }
