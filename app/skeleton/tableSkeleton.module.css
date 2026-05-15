@@ -1,0 +1,26 @@
+.table {
+  width: 100%;
+  text-align: left;
+}
+
+.table-header {
+  padding: 16px;
+  display: grid;
+  grid-template-columns: max(60%, 250px) max(20%, 100px) max(20%, 250px);
+  font-size: var(--fs-body);
+  background-color: var(--color-gray);
+}
+
+.table-body {
+  display: flex;
+  flex-direction: column;
+}
+
+@media (width < 750px) {
+  .table-header {
+    grid-template-columns: 1fr;
+  }
+  .remove-mobile {
+    display: none;
+  }
+}
