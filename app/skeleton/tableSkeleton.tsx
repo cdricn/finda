@@ -4,8 +4,8 @@ export default function TableSkeleton() {
 
   return (
     <>
-      <div className={styles['dropdown']}>
-
+      <div className={styles['button']}>
+        <span>Ongoing</span>
       </div>
       <div className={styles['table']}>
         <div className={styles['table-header']}>
