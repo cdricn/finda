@@ -2,12 +2,15 @@
   font-family: "Inter", system-ui, Avenir, Helvetica, Arial, sans-serif;
   scroll-behavior: smooth;
 
+  --color-lightgray: #fafafa;
+  --color-gray: #F4F4F4;
+  --color-darkgray: #D9D9D9;
   --color-white: #ffffff;
   --color-black: #0f0f0f;
   --color-itch-light: #ff6f87;
   --color-itch: #FF2449;
 
-  --background: var(--color-white);
+  --background: var(--color-gray);
   --foreground: var(--color-black);
   --color-main: var(--color-itch);
 
@@ -23,12 +26,20 @@
   background-color: var(--background);
 }
 
+/*
 @media (prefers-color-scheme: dark) {
   :root {
     --color-main: var(--color-itch-light);
 
     color: var(--color-white);
     background-color: var(--foreground);
+  }
+}*/
+
+@media (width < 750px) {
+  :root {
+    --fs-header: 2rem;
+    --fs-body: 1rem; /*16px*/
   }
 }
 
