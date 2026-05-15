@@ -13,7 +13,7 @@ export default async function Main({params}:{params: Promise<{ id: string }>}) {
         <div className={styles['page-header']}>
           <h1>Find a team!</h1>
           <p> 
-            Aggregating all forum posts looking for teams or members 
+            Aggregating all forum posts looking for teams and members 
             from popular itch.io game jams.
           </p>
         </div>
