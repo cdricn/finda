@@ -1,5 +1,6 @@
 import { fetchData } from '@/app/api/fetch/fetchData';
 import Posts from './components/posts';
+import ErrorMessage from '@/app/components/error/errorMessage';
 
 export default async function PagePosts({params}:{params:string}) {
   
@@ -7,9 +8,9 @@ export default async function PagePosts({params}:{params:string}) {
 
   return (
     <>
-      {data && Object.keys(data).length > 0 ?
+      {data !== null ?
         <Posts data={data}/> :
-        <></>
+        <ErrorMessage />
       }
     </>
   )
