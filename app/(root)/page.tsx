@@ -1,5 +1,4 @@
 import styles from './page.module.css';
-import JamSelection from '../components/jamSelection/jamSelection';
 import { Suspense } from 'react';
 import GameJamList from './gamejamList/gamejamList';
 import TableSkeleton from '../skeleton/tableSkeleton';
