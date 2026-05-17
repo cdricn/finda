@@ -3,7 +3,7 @@
 import { useState } from 'react'
 import styles from './selectJamType.module.css'
 
-export default function SelectJamType({changeData}:{changeData:()=>{}}) {
+export default function SelectJamType({changeData}:{changeData:(type:string)=>void}) {
   const [isExpanded, setIsExpanded] = useState(false);
   const [dropdownText, setDropdownText] = useState('Ongoing');
 
