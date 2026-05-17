@@ -64,7 +64,7 @@ export default function Table({data}:{data:{ongoing: GameJamEntries[], upcoming:
                 </a>
               )
             }) :
-            <div className='error-message'>
+            <div className={styles['error-message']}>
               <p>An error occured! Could not fetch data.</p>
             </div>
           }
