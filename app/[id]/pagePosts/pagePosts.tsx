@@ -1,3 +1,4 @@
+import styles from './pagePosts.module.css';
 import { fetchData } from '@/app/api/fetch/fetchData';
 import Posts from './components/posts';
 import ErrorMessage from '@/app/components/error/errorMessage';
@@ -10,7 +11,9 @@ export default async function PagePosts({params}:{params:string}) {
     <>
       {data !== null ?
         <Posts data={data}/> :
-        <ErrorMessage />
+        <div className={styles['message-container']}>
+          <p>An error occured! Could not fetch data.</p>
+        </div>
       }
     </>
   )
