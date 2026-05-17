@@ -1,9 +1,10 @@
 'use client'
 
-import { useState } from 'react';
 import styles from './table.module.css';
 import { GameJamEntries } from '@/app/lib/interface';
+import { useState } from 'react';
 import SelectJamType from './selectJamType';
+import ErrorMessage from '@/app/components/error/errorMessage';
 
 export default function Table({data}:{data:{ongoing: GameJamEntries[], upcoming:GameJamEntries[]}}) {
   const [tableData, setTableData] = useState(data.ongoing);
@@ -28,7 +29,13 @@ export default function Table({data}:{data:{ongoing: GameJamEntries[], upcoming:
   }
 
   function changeJamType(type:string) {
-    setTableData(data[type]);
+    setTableData(data[type]); // assign type
+  }
+
+  function checkNull() {
+    if(tableData === null) {
+      return true;
+    }
   }
 
   return (
@@ -43,19 +50,24 @@ export default function Table({data}:{data:{ongoing: GameJamEntries[], upcoming:
           <h2 className={styles['remove-mobile']}>Ends in</h2>
         </div>
         <div className={styles['table-body']}>
-          {tableData.map((item:GameJamEntries, index)=>{
-            const year = item.deadline.slice(0, 4); 
-            const month = numToMonth(item.deadline.slice(5, 7)); //map this to actual month name
-            const day = item.deadline.slice(8, 10); 
-            const url = 'http://localhost:3000/'+item.url.slice(20); //change to vercel 
-            return (
-              <a href={url} className={styles['table-row']} key={item.title+index} target='_'>
-                <p>{item.title}</p>
-                <p className={styles['remove-mobile']}>{item.members}</p>
-                <p className={styles['remove-mobile']}>{month+' '+day+' '+year}</p>
-              </a>
-            )})
+
+          {checkNull() ? 
+            <ErrorMessage /> :
+            tableData.map((item:GameJamEntries, index)=>{
+              const year = item.deadline.slice(0, 4); 
+              const month = numToMonth(item.deadline.slice(5, 7)); //map this to actual month name
+              const day = item.deadline.slice(8, 10); 
+              const url = 'http://localhost:3000/'+item.url.slice(20); //change to vercel 
+              return (
+                <a href={url} className={styles['table-row']} key={item.title+index} target='_'>
+                  <p>{item.title}</p>
+                  <p className={styles['remove-mobile']}>{item.members}</p>
+                  <p className={styles['remove-mobile']}>{month+' '+day+' '+year}</p>
+                </a>
+              )
+            })
           }
+
         </div>
       </div>
     </>

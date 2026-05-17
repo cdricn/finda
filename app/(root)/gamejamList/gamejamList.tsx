@@ -1,6 +1,5 @@
 import { fetchData } from '@/app/api/fetch/fetchData';
 import Table from './components/table';
-import TableError from '@/app/components/error/tableError';
 
 export default async function GameJamList({params}:{params:string}) {
   
@@ -11,10 +10,7 @@ export default async function GameJamList({params}:{params:string}) {
 
   return (
     <>
-      {data.ongoing === null && data.upcoming === null ? 
-        <TableError />
-        : <Table data={data}/>
-      }
+      <Table data={data}/>
     </>
   )
 }
