@@ -1,0 +1,5 @@
+.message-container {
+  padding: var(--spacing-48);
+  text-align: center;
+  background-color: var(--color-inactive);
+}
