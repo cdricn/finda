@@ -11,7 +11,7 @@ export default function Posts({data}:{data:ForumPosts[]}) {
 
   return (
     <>
-      {data && Object.keys(data).length > 0 ?
+      {Object.keys(data).length > 0 ?
         <>
           <ul className={styles['posts-container']}>
             {data.filter((item)=>
