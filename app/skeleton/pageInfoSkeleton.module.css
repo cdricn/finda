@@ -1,0 +1,25 @@
+.page-info-container {
+  padding-bottom: 16px;
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  justify-content: end;
+  color: var(--color-body);
+}
+
+.title-shimmer {
+  font-size: var(--fs-header);
+  font-weight: 600;
+  line-height: 120%;
+  color: var(--color-itch);
+  text-decoration: none;
+}
+.body-shimmer {
+
+}
+
+@media (width < 500px) {
+  .title-shimmer {
+    font-size: var(--fs-header-2);
+  }
+}

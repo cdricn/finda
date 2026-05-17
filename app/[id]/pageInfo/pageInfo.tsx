@@ -1,10 +1,10 @@
+import PageInfoSkeleton from '@/app/skeleton/pageInfoSkeleton';
 import styles from './pageInfo.module.css';
 import { fetchData } from '@/app/api/fetch/fetchData';
 
 export default async function PageInfo({params}:{params:string}) {
-  
-  let data = await fetchData.getResource(params, 'gamejam/details');
 
+  let data = await fetchData.getResource(params, 'gamejam/details');
   const link = params ? 'https://itch.io/jam/'+params.toString() : '/';
 
   function dateFormatter(date:string) {
@@ -28,9 +28,7 @@ export default async function PageInfo({params}:{params:string}) {
             <span>{dateFormatter(data.endDate)}</span>
           </div>
         </div> :
-        <div className={styles['page-info-container']}>
-
-        </div>
+        <PageInfoSkeleton />
       }
     </>
   )
