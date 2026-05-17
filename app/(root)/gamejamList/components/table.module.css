@@ -44,6 +44,11 @@
   min-width: none;
 }
 
+.error-message {
+  padding: var(--spacing-48);
+  text-align: center;
+  background-color: var(--color-inactive);
+}
 
 @media (width < 750px) {
   .table-header {

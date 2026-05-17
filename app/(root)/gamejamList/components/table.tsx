@@ -4,7 +4,6 @@ import styles from './table.module.css';
 import { GameJamEntries } from '@/app/lib/interface';
 import { useState } from 'react';
 import SelectJamType from './selectJamType';
-import ErrorMessage from '@/app/components/error/errorMessage';
 
 export default function Table({data}:{data:{ongoing: GameJamEntries[], upcoming:GameJamEntries[]}}) {
   const [tableData, setTableData] = useState(data.ongoing);
@@ -32,8 +31,8 @@ export default function Table({data}:{data:{ongoing: GameJamEntries[], upcoming:
     setTableData(data[type]); // assign type
   }
 
-  function checkNull() {
-    if(tableData === null) {
+  function checkData() {
+    if(tableData !== null) {
       return true;
     }
   }
@@ -51,8 +50,7 @@ export default function Table({data}:{data:{ongoing: GameJamEntries[], upcoming:
         </div>
         <div className={styles['table-body']}>
 
-          {checkNull() ? 
-            <ErrorMessage /> :
+          {checkData() ? 
             tableData.map((item:GameJamEntries, index)=>{
               const year = item.deadline.slice(0, 4); 
               const month = numToMonth(item.deadline.slice(5, 7)); //map this to actual month name
@@ -65,9 +63,11 @@ export default function Table({data}:{data:{ongoing: GameJamEntries[], upcoming:
                   <p className={styles['remove-mobile']}>{month+' '+day+' '+year}</p>
                 </a>
               )
-            })
+            }) :
+            <div className='error-message'>
+              <p>An error occured! Could not fetch data.</p>
+            </div>
           }
-
         </div>
       </div>
     </>
