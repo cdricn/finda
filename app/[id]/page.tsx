@@ -20,9 +20,13 @@ export default async function PostsPage({
   
   if (resolvedParams !== undefined) {
     if (typeof resolvedParams.tags === 'string') {
-      searchArray.push(resolvedParams.tags)
-    } else if (typeof resolvedParams.tags === 'object') {
+      searchArray.push(resolvedParams.tags);
+    } 
+    else if (typeof resolvedParams.tags === 'object') {
       searchArray = searchArray.concat(resolvedParams.tags);
+    } 
+    else {
+      searchArray.push('all');
     }
   }
 
