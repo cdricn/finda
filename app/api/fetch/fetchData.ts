@@ -22,5 +22,8 @@ export const fetchData = {
     FetchApi(`${resource}/${id}`),
 
   getJams: (resource:string, param:number)=>
-    FetchApi(`${resource}/${param}`)
+    FetchApi(`${resource}/${param}`),
+
+  getPosts: (id:string, resource:string, tags:Array<string>)=>
+    FetchApi(`${resource}/${id}/${tags}`),
 }
