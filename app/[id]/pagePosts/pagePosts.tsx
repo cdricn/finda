@@ -10,7 +10,7 @@ export default async function PagePosts({
   searchParams: Array<string>
 }) {
 
-  let data = await fetchData.getPosts(params, 'gamejam/posts', searchParams);
+  let data = await fetchData.getPosts(params, 'gamejam/posts', searchParams.join('&tags='));
 
   return (
     <>
