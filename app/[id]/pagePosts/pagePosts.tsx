@@ -1,10 +1,15 @@
 import styles from './pagePosts.module.css';
 import { fetchData } from '@/app/api/fetch/fetchData';
 import Posts from './components/posts';
-import ErrorMessage from '@/app/components/error/errorMessage';
 
-export default async function PagePosts({params}:{params:string}) {
-  
+export default async function PagePosts({
+  params, 
+  searchParams
+}:{
+  params: string, 
+  searchParams: Array<string> | undefined
+}) {
+
   let data = await fetchData.getResource(params, 'gamejam/posts');
 
   return (
