@@ -7,10 +7,10 @@ export default async function PagePosts({
   searchParams
 }:{
   params: string, 
-  searchParams: Array<string> | undefined
+  searchParams: Array<string>
 }) {
 
-  let data = await fetchData.getResource(params, 'gamejam/posts');
+  let data = await fetchData.getPosts(params, 'gamejam/posts', searchParams);
 
   return (
     <>
