@@ -57,7 +57,7 @@ export default function Table({data}:{data:{ongoing: GameJamEntries[], upcoming:
               const year = item.deadline.slice(0, 4); 
               const month = numToMonth(item.deadline.slice(5, 7)); //map this to actual month name
               const day = item.deadline.slice(8, 10); 
-              const url = 'http://localhost:3000/'+item.url.slice(20); //change to vercel 
+              const url = 'https://findateam.vercel.app/'+item.url.slice(20); //change to vercel 
               return (
                 <a href={url} className={styles['table-row']} key={item.title+index} target='_'>
                   <p>{item.title}</p>
