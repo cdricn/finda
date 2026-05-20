@@ -39,6 +39,8 @@
 }
 .card-title {
   color: var(--color-main);
+  font-size: var(--fs-body-header);
+  font-weight: 500;
 }
 .card-author {  
   padding-top: 4px;
@@ -57,7 +59,7 @@
   font-size: var(--fs-subtext);
 }
 
-@media (width < 400px) {
+@media (width < 600px) {
   .card-wrapper {
     flex-direction: column;  
   }
