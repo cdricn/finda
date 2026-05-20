@@ -3,15 +3,24 @@
 import styles from './filterTags.module.css';
 import { FaFilter } from "react-icons/fa6";
 import Tag from './tag';
+import { TagState } from '../lib/interface';
 import { useRouter, useSearchParams } from 'next/navigation';
-import { useEffect } from 'react';
+import { useEffect, useState } from 'react';
 
 
 export default function FilterTags() {
   const router = useRouter();
   const searchParams = useSearchParams().getAll('tags');
+  const [activeTags, setActiveTags] = useState<TagState>({
+    all: false,
+    developer: false,
+    artist: false,
+    music: false,
+    writer: false,
+    playtester: false
+  });
 
-  // Set to all at load
+  // Set tags to 'all' at load
   useEffect(()=>{
     if (searchParams.length === 0) {
       router.replace('?tags=all');
@@ -21,37 +30,45 @@ export default function FilterTags() {
   // Bug: if you click tags in quick succession, it'll activate one by one, 
   // possibly because the searchparams is not updated yet.  
   function handleClick(tag:string) {
-    let tempTags = [...searchParams];
-    // Check if 'all' tag is clicked 
+    let tempTags = {...activeTags};
+    const tempParams = [];
+
     if(tag==='all') {
-      tempTags = ['all'];
+      Object.keys(tempTags).forEach((item)=>{
+        tempTags[item] = item==='all' ? true : false;
+      })
+      router.push('?tags=all');
     }
     else {
-      if (tempTags.includes(tag)) {
-        tempTags = searchParams.filter((filter) => !(filter===tag) && !(filter==='all'))
+      tempTags = {...tempTags, all:false, [tag]:!activeTags[tag]};
+      
+      // If no tag is active when a tag is clicked, set to all
+      if (Object.values(tempTags).every(bool=>bool===false)) {
+        tempTags = {...tempTags, all:true};
+        router.push('?tags=all');
       }
       else {
-        tempTags = searchParams.filter((filter) => !(filter==='all'))
-        tempTags.push(tag);
+        for(const item in tempTags) {
+          if(tempTags[item] && item!=='all') {
+            tempParams.push(item);
+            router.push(`?tags=`+ tempParams.join('&tags='))
+          } 
+        }
       }
     }
-    
-    if (tempTags.length === 0) {
-      tempTags = ['all'];
-    }
 
-    router.push('?tags=' + tempTags.join('&tags='));
+    setActiveTags(tempTags);
   }
   
   return (
     <div className={styles['filtertags-section']}>
       <FaFilter />
-      <Tag tag={'all'} isActive={searchParams.includes('all')} handleClick={handleClick}/>
-      <Tag tag={'developer'} isActive={searchParams.includes('developer')} handleClick={handleClick}/>
-      <Tag tag={'artist'} isActive={searchParams.includes('artist')} handleClick={handleClick}/>
-      <Tag tag={'music'} isActive={searchParams.includes('music')} handleClick={handleClick}/>
-      <Tag tag={'writer'} isActive={searchParams.includes('writer')} handleClick={handleClick}/>
-      <Tag tag={'playtester'} isActive={searchParams.includes('playtester')} handleClick={handleClick}/>
+      <Tag tag={'all'} isActive={activeTags.all} handleClick={handleClick}/>
+      <Tag tag={'developer'} isActive={activeTags.developer} handleClick={handleClick}/>
+      <Tag tag={'artist'} isActive={activeTags.artist} handleClick={handleClick}/>
+      <Tag tag={'music'} isActive={activeTags.music} handleClick={handleClick}/>
+      <Tag tag={'writer'} isActive={activeTags.writer} handleClick={handleClick}/>
+      <Tag tag={'playtester'} isActive={activeTags.playtester} handleClick={handleClick}/>
     </div>
   )
 }
