@@ -1,25 +1,11 @@
-.header-container {
-  padding: 10px;
-  position: absolute;
-  display: flex;
-  justify-content: flex-end;
-  align-items: center;
-  top: 0;
-  width: 100%;
-  z-index: 10;
-}
-
-.header-title {
-  font-size: var(--fs-post-header);
-  color: var(--color-black);
-  text-decoration: none;
-  user-select: none;
-}
-
 .github-icon {
+  position: absolute;
   display: inline-block;
-  font-size: 30px;
+  top: 0;
+  right: 8px;
   width: 30px;
   height: 30px;
+  font-size: var(--fs-header-2);
   color: var(--color-black);
+  z-index: 10;
 }
