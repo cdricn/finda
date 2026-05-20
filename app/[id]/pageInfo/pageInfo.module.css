@@ -21,9 +21,3 @@
 .page-info {
   padding-top: 4px;
 }
-
-@media (width < 500px) {
-  .page-title {
-    font-size: var(--fs-header-2);
-  }
-}
