@@ -23,6 +23,7 @@
   --color-text-inactive: var(--color-black);
 
   --fs-header: 3.5rem; /*56px*/
+  --fs-header-2: 2rem; /*32*/
   --fs-body: 1.125rem; /*18px*/
   --fs-subtext: 1rem; /*16px*/
 
@@ -30,6 +31,8 @@
   --spacing-16: 1rem;
   --spacing-32: 2rem;
   --spacing-48: 3rem;
+  --spacing-64: 4rem;
+  --spacing-96: 6rem;
 
   color: var(--color-black);
   background-color: var(--background);
@@ -47,7 +50,7 @@
 
 @media (width < 750px) {
   :root {
-    --fs-header: 2rem;
+    --fs-header: 2rem; /*32px*/
     --fs-body: 1rem; /*16px*/
   }
 }
