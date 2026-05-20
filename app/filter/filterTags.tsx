@@ -22,9 +22,16 @@ export default function FilterTags() {
 
   // Set tags to 'all' at load
   useEffect(()=>{
-    if (searchParams.length === 0) {
+    let temp = {...activeTags};
+    if (searchParams.length > 0 && !searchParams.includes('all')) {
+      for (const p in searchParams) {
+        temp = {...temp, [searchParams[p]]:true};
+      }
+    } else {
+      temp = {...temp, all:true};
       router.replace('?tags=all');
     }
+    setActiveTags(temp);
   }, [])
   
   // Bug: if you click tags in quick succession, it'll activate one by one, 
