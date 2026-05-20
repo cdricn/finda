@@ -7,12 +7,12 @@ import Link from 'next/link';
 import { SearchParams } from 'next/dist/server/request/search-params';
 import { ReturnArrow } from '../components/svgIcons/svgIcons';
 
-export default async function PostsPage({
+export default async function Page({
   params, 
   searchParams
 }:{
   params: Promise<{ id: string }>, 
-  searchParams: SearchParams
+  searchParams: Promise<SearchParams>
 }) {
   
   const paramID = await params;
