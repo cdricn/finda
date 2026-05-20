@@ -5,6 +5,8 @@ import { GameJamEntries } from '@/app/lib/interface';
 import { useState } from 'react';
 import SelectJamType from './selectJamType';
 
+type JamType = 'ongoing' | 'upcoming';
+
 export default function Table({data}:{data:{ongoing: GameJamEntries[], upcoming:GameJamEntries[]}}) {
   const [tableData, setTableData] = useState(data.ongoing);
 
@@ -27,7 +29,7 @@ export default function Table({data}:{data:{ongoing: GameJamEntries[], upcoming:
     return months[num as keyof typeof months];
   }
 
-  function changeJamType(type:string) {
+  function changeJamType(type:JamType) {
     setTableData(data[type]); // assign type
   }
 

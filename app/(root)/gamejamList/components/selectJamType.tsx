@@ -3,11 +3,13 @@
 import { useState } from 'react'
 import styles from './selectJamType.module.css'
 
-export default function SelectJamType({changeData}:{changeData:(type:string)=>void}) {
+type JamType = 'ongoing' | 'upcoming';
+
+export default function SelectJamType({changeData}:{changeData:(type:JamType)=>void}) {
   const [isExpanded, setIsExpanded] = useState(false);
   const [dropdownText, setDropdownText] = useState('Ongoing');
 
-  function onSelectionClick(value:string) {
+  function onSelectionClick(value:JamType) {
     const text = value.slice(0, 1).toUpperCase() + value.slice(1)
     setDropdownText(text);
     changeData(value);
