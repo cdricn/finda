@@ -5,6 +5,7 @@ import PagePosts from './pagePosts/pagePosts';
 import { Suspense } from 'react';
 import Link from 'next/link';
 import { SearchParams } from 'next/dist/server/request/search-params';
+import { ReturnArrow } from '../components/svgIcons/svgIcons';
 
 export default async function PostsPage({
   params, 
@@ -33,7 +34,9 @@ export default async function PostsPage({
   return (
     <main className={styles['main-container']}>
       <div className={styles['wrapper']}>
-        <Link href='/' className={styles['back-button']}></Link>
+        <Link href='/' className={styles['back-button']}>
+          <ReturnArrow /> 
+        </Link>
         <section className={styles['title-section']}>
           <Suspense fallback={<>Loading</>}>
             <PageInfo params={paramID.id}/>
