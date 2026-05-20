@@ -23,7 +23,8 @@
   --color-text-inactive: var(--color-black);
 
   --fs-header: 3.5rem; /*56px*/
-  --fs-header-2: 2rem; /*32*/
+  --fs-header-2: 2rem; /*32px*/
+  --fs-body-header: 1.25rem; /*20px*/
   --fs-body: 1.125rem; /*18px*/
   --fs-subtext: 1rem; /*16px*/
 
@@ -51,6 +52,7 @@
 @media (width < 750px) {
   :root {
     --fs-header: 2rem; /*32px*/
+    --fs-body-header: 1.125rem; /*18px*/
     --fs-body: 1rem; /*16px*/
   }
 }
