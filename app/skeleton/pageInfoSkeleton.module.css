@@ -1,5 +1,5 @@
 .page-info-container {
-  padding-bottom: 16px;
+  padding-bottom: var(--spacing-16);
   position: relative;
   display: flex;
   flex-direction: column;
@@ -7,19 +7,49 @@
   color: var(--color-body);
 }
 
+/* Thanks to: https://codepen.io/Raphaelakpofure/pen/wvJJpWr?editors=1100 */
 .title-shimmer {
-  font-size: var(--fs-header);
-  font-weight: 600;
-  line-height: 120%;
-  color: var(--color-itch);
-  text-decoration: none;
+  border-radius: 5px;
+  width: 50%;
+  min-width: 280px;
+  height: var(--fs-header);
+  background: linear-gradient(to right, 
+    var(--color-shimmer-title-bg) 5%, 
+    var(--color-shimmer-title) 25%, 
+    var(--color-shimmer-title-bg) 35%
+  );
 }
+
 .body-shimmer {
-
+  border-radius: 5px;
+  margin-top: var(--spacing-8);
+  height: var(--fs-body); 
+  background: linear-gradient(to right, 
+    var(--color-shimmer-body-bg) 5%, 
+    var(--color-shimmer-body) 25%, 
+    var(--color-shimmer-body-bg) 35%
+  );
+}
+.body-width {
+  width: 30%;
+  min-width: 150px;
+}
+.sub-width {
+  width: 15%;
+  min-width: 75px;
 }
 
-@media (width < 500px) {
-  .title-shimmer {
-    font-size: var(--fs-header-2);
+.animate {
+  animation: shimmer 3s;
+  animation-iteration-count: infinite;
+  background-size: 1000px 100%;
+}
+
+@keyframes shimmer {
+  from {
+    background-position: -1000px 0;
+  }
+  to {
+    background-position: 1000px 0;
   }
 }

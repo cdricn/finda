@@ -1,4 +1,5 @@
 .message-container {
-  padding: var(--spacing-48);
+  padding-top: var(--spacing-48);
+  padding-bottom: var(--spacing-48);
   text-align: center;
 }
