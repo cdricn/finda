@@ -6,6 +6,8 @@ import { Suspense } from 'react';
 import Link from 'next/link';
 import { SearchParams } from 'next/dist/server/request/search-params';
 import { ReturnArrow } from '../components/svgIcons/svgIcons';
+import PageInfoSkeleton from '../skeleton/pageInfoSkeleton';
+import PostsSkeleton from '../skeleton/postsSkeleton';
 
 export default async function Page({
   params, 
@@ -38,13 +40,13 @@ export default async function Page({
           <ReturnArrow /> 
         </Link>
         <section className={styles['title-section']}>
-          <Suspense fallback={<>Loading</>}>
+          <Suspense fallback={<PageInfoSkeleton />}>
             <PageInfo params={paramID.id}/>
           </Suspense>
           <FilterTags />
         </section>
         <section className={styles['content-section']}>
-          <Suspense fallback={<>Loading</>}>
+          <Suspense fallback={<PostsSkeleton />}>
             <PagePosts params={paramID.id} searchParams={searchArray}/>
           </Suspense>
         </section>
