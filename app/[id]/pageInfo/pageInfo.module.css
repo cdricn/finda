@@ -5,6 +5,7 @@
   flex-direction: column;
   justify-content: end;
   color: var(--color-body);
+  word-break: break-word;
 }
 
 .page-title {

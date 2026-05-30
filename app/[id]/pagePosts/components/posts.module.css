@@ -1,8 +1,7 @@
 .posts-container {
   position: relative;
   list-style-type: none;
-  width: 95%;
-  max-width: 1000px;
+  width: 98%;
 }
 
 .card-container {
@@ -29,6 +28,7 @@
   padding: 4px;
   display: flex;
   align-items: center;
+  justify-content: space-between;
   gap: 15px;
   text-decoration: none;
   color: var(--color-body);
@@ -36,6 +36,7 @@
 
 .card-content {
   flex-grow: 1;
+  max-width: 900px;
 }
 .card-title {
   color: var(--color-main);
